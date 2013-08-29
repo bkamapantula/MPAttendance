@@ -1,0 +1,525 @@
+<!--
+You are free to copy and use this sample in accordance with the terms of the
+Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <style>
+        body {
+            background-image: url('images/textured_paper.png');
+        }
+        svg {
+            background: white;
+        }
+        #visualization {
+            margin-top: -10px;
+        }
+        .fgender-icons {
+            font-weight: bold;
+        }
+        div.tool-tipp {   
+          position: absolute;
+          text-align: center;
+          width: 150px;
+          height: 70px;
+          padding: 5px;
+          font: 12px sans-serif;
+          background: #e74a16;
+          margin-left: 10px;
+          color: black;
+          border: 1px;
+          border-radius: 8px;
+        }
+        div.tool-tipp-two {
+          position: absolute;
+          text-align: center;
+          width: 150px;
+          height: 70px;
+          padding: 5px;
+          font: 12px sans-serif;
+          background: #e74a16;
+          margin-left: 10px;
+          color: black;
+          border: 1px;
+          border-radius: 8px;
+        }
+    </style>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+    <title>
+      Lok sabha MP attendance
+    </title>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['controls', 'corechart']});
+    </script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/calls.js"></script>
+    <script type="text/javascript">
+      var i;
+      var fromDate = new Date(1999, 1, 1);
+      var toDate = new Date(1999, 12, 1);
+      var signed = 0;
+      var missed = 0;
+      var fmpCount = 0;
+      var mmpCount = 0;
+      var perc = 0.0;
+      var distinction = 0;
+      var secondClass = 0;
+      var thirdClass = 0;
+      var fmpDistinction = 0;
+      var fmpSecondClass = 0;
+      var fmpThirdClass = 0;
+      var mmpDistinction = 0;
+      var mmpSecondClass = 0;
+      var mmpThirdClass = 0;
+      var congressDist = 0;
+      var congressSecond = 0;
+      var congressThird = 0;
+      var bjpDist = 0;
+      var bjpSecond = 0;
+      var bjpThird = 0;
+      var percNoDec = 0;
+      var attendance = [];
+      var counts = [];
+      var result = { };
+      function drawVis(data, session) {
+        var dt = new google.visualization.DataTable();
+        var dtGender = new google.visualization.DataTable();
+        var dtMGender = new google.visualization.DataTable();
+        var dtParty = new google.visualization.DataTable();
+        dt.addColumn('number', 'Days attended');
+        dt.addColumn('number', 'Number of MPs');
+        dt.addColumn({'type': 'string', 'role': 'tooltip', 'p': {'html': true}});
+        
+        dtGender.addColumn('string', 'Category');
+        dtGender.addColumn('number', 'Percentage');
+        dtMGender.addColumn('string', 'Category');
+        dtMGender.addColumn('number', 'Percentage');
+        
+        dtParty.addColumn('number', 'Percentage');
+        dtParty.addColumn('number', 'Days Signed');
+        dtParty.addColumn('string', 'Party');
+        dtParty.addColumn({'type': 'string', 'role': 'tooltip', 'p': {'html': true}});
+
+        var rows = data.length;
+        dtParty.addRows(rows);
+        for(i=0; i< rows; i++) {
+            signed = parseInt( data[i]['Days Signed'], 10 );
+            missed = parseInt( data[i]['Days Missed'], 10 );
+            perc = parseFloat( signed / (signed + missed) )*100 ;
+            /* rounds percentage to two decimal points */
+            percNoDec = perc.toString().split('.')[0];
+            perc = perc.toFixed(2);
+            attendance.push( perc );
+            counts.push( signed );
+            
+            // Total attendance classification for hero-unit data
+            if(perc >= 75) {
+                distinction = distinction + 1;
+            }
+            if(perc<75 && perc>=65 ) {
+                secondClass = secondClass + 1;
+            }
+            if(perc < 65) {
+                thirdClass = thirdClass + 1;
+            }
+            
+            // Attendance classification for Female | Pie chart
+            if( parseInt( data[i]['Gender'], 10) === 0 ) {
+                fmpCount = fmpCount + 1;
+                if (perc >= 75) {
+                    fmpDistinction = fmpDistinction + 1;
+                }
+                if (perc<75 && perc>=65) {
+                    fmpSecondClass = fmpSecondClass + 1;
+                }
+                if(perc < 65) {
+                    fmpThirdClass = fmpThirdClass + 1;
+                }
+            }
+            else {
+                mmpCount = mmpCount + 1;
+                if (perc >= 75) {
+                    mmpDistinction = mmpDistinction + 1;
+                }
+                if (perc<75 && perc>=65) {
+                    mmpSecondClass = mmpSecondClass + 1;
+                }
+                if(perc < 65) {
+                    mmpThirdClass = mmpThirdClass + 1;
+                }
+            }
+            if( data[i]['Party'] == 'INC' ) {
+                if(perc >= 75) {
+                    congressDist = congressDist + 1;
+                }
+                if(perc<75 && perc>= 65) {
+                    congressSecond = congressSecond + 1;
+                }
+                if(perc<65) {
+                    congressThird = congressThird + 1;
+                }
+            }
+            if( data[i]['Party'] == 'BJP' ) {
+                if(perc >= 75) {
+                    bjpDist = bjpDist + 1;
+                }
+                if(perc<75 && perc>= 65) {
+                    bjpSecond = bjpSecond + 1;
+                }
+                if(perc<65) {
+                    bjpThird = bjpThird + 1;
+                }
+            }
+
+            dtParty.setCell(i, 0, parseInt(percNoDec, 10), {style: 'color: black;'}  );
+            dtParty.setCell(i, 1, i, {style: 'color: black;'} );
+            dtParty.setCell(i, 2, data[i]['Party'], {style: 'color: black;'} );
+            dtParty.setCell(i, 3, 'Name: ' + data[i]['Name'] + '\n' + 'Party: ' + data[i]['Party'] + '\n' + 'Days signed: ' + data[i]['Days Signed'] + '\n' + 'Days missed: ' + data[i]['Days Missed'] );
+        }
+
+        for(i=0; i<counts.length; i++) {
+            if(!result[counts[i]]) {
+                result[counts[i]] = 0;
+            }
+            ++result[counts[i]];
+        }
+
+        var allMPs = 0;
+
+        for (i=1; i <= Math.max.apply(Math, counts); i++) {
+            allMPs = allMPs + result[i];
+        }
+        zeroAttendance = 541 - allMPs;
+        dt.addRow( [ 0, zeroAttendance, zeroAttendance + ' out of 541 MPs attended 0 days' ] );
+        for (i=1; i <= Math.max.apply(Math, counts); i++) {
+            dt.addRow( [ i, result[i], result[i] + ' out of 541 MPs attended ' + i + ' days' ] );
+        }
+        
+        dtGender.addRow( [ 'Attendance: >=75%', fmpDistinction ] ); 
+        dtGender.addRow( [ 'Attendance: 65%-75%', fmpSecondClass ] );
+        dtGender.addRow( [ 'Attendance: <65%', fmpThirdClass ] );
+        
+        dtMGender.addRow( [ 'Attendance: >=75%', distinction - fmpDistinction ] ); 
+        dtMGender.addRow( [ 'Attendance: 65%-75%', secondClass - fmpSecondClass ] );
+        dtMGender.addRow( [ 'Attendance: <65%', thirdClass - fmpThirdClass ] );
+
+        if(session === 1) {
+            fromDate = new Date('June 01, 2009'); toDate = new Date('June 09, 2009');
+        }
+        if(session === 2) {
+            fromDate = new Date('July 02, 2009'); toDate = new Date('August 07, 2009');
+        }
+        if(session === 3) {
+            fromDate = new Date('November 19, 2009'); toDate = new Date('December 21, 2009');
+        }
+        if(session === 4) {
+            fromDate = new Date('February 22, 2010'); toDate = new Date('March 16, 2010');
+        }
+        if(session === 5) {
+            fromDate = new Date('July 26, 2010'); toDate = new Date('August 31, 2010');
+        }
+        if(session === 6) {
+            fromDate = new Date('November 09, 2010'); toDate = new Date('December 13, 2010');
+        }
+        if(session === 7) {
+            fromDate = new Date('February 21, 2011'); toDate = new Date('March 25, 2011');
+        }
+        if(session === 8) {
+            fromDate = new Date('August 01, 2011'); toDate = new Date('September 08, 2011');
+        }
+        if(session === 9) {
+            fromDate = new Date('November 22, 2011'); toDate = new Date('December 29, 2011');
+        }
+        if(session === 10) {
+            fromDate = new Date('March 12, 2012'); toDate = new Date('May 22, 2012');
+        }
+        if(session === 11) {
+            fromDate = new Date('August 08, 2012'); toDate = new Date('September 07, 2012');
+        }
+        if(session === 12) {
+            fromDate = new Date('November 22, 2012'); toDate = new Date('December 20, 2012');
+        }
+
+        $(".hero-unit").show();
+        $("#session-counter").text('Session: '+session);
+        //$("#max-days").text('Total days: ' + Math.max.apply(Math, counts) + '( ' + fromDate.toLocaleString().slice(0, -11) + ' - ' + toDate.toLocaleString().slice(0, -11) + ' )' );
+        $("#max-days").text('Total days: ' + Math.max.apply(Math, counts) + ' ( ' + fromDate + ' - ' + toDate + ' )' );
+        $("#distinction-perc").text(distinction + ' MPs with 75% or more attendance');
+        $("#second-perc").text(secondClass + ' MPs with 65%-75% attendance');
+        $("#third-perc").text(thirdClass + ' MPs with less than 65% attendance');
+        $(".page-header-gender").show();
+        $("#gender-heading").show();
+
+        $(".fgender-icons").show();
+
+        // column chart for MPs attendance
+        var viz = new google.visualization.ColumnChart(document.getElementById('visualization'));
+        viz.draw(dt, { 
+                        //width: 800, 
+                        height: 500,
+                        hAxis: {'title': 'Number of Days' },
+                        vAxis: {'title': 'Number of MPs' },
+                        colors: ['#255d90'] // ['#153450']
+                     }
+                );
+        
+        attendance.length = 0; counts.length = 0; result = {}; distinction = 0; secondClass = 0; thirdClass = 0;
+        fmpDistinction = 0; fmpSecondClass = 0; fmpThirdClass = 0; mmpDistinction = 0; mmpSecondClass = 0; mmpThirdClass = 0;
+        
+        // pie chart for Female MPs
+        var fgenderViz = new google.visualization.PieChart(document.getElementById('fgender'));
+        fgenderViz.draw(dtGender, {
+                                     title: 'Female MPs (Total: ' + fmpCount + ')',
+                                     width: 600,
+                                     height: 400,
+                                     colors: ['#447294', '#8fbcdb', '#294052' ]
+                                  } );
+        fmpDistinction = 0; fmpSecondClass = 0; fmpThirdClass = 0;
+
+        // pie chart for Male MPs
+        var mgenderViz = new google.visualization.PieChart(document.getElementById('mgender'));
+        mgenderViz.draw(dtMGender, {
+                                     title: 'Male MPs (Total: ' + mmpCount + ')',
+                                     width: 600,
+                                     height: 400,
+                                     colors: ['#447294', '#8fbcdb', '#294052' ]
+                                  } );
+       }
+    </script>
+  </head>
+  <body style="font-family: Arial;border: 0 none;">
+    <div class="container">
+        <h3>MAP - MPs Attending Parliament </h3>
+    </div>
+   <div class="container" id="top-container">
+    <h3>XV Lok Sabha</h3>
+    <h4>Number of sessions: 12</h4>
+    <table class="table">
+        <!--th>Session</th-->
+        <tr><td><a href="javascript:void(0);" id="fifteen-one" class="ls-session">1</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-two"  class="ls-session">2</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-three"  class="ls-session">3</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-four"  class="ls-session">4</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-five"  class="ls-session">5</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-six"  class="ls-session">6</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-seven"  class="ls-session">7</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-eight"  class="ls-session">8</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-nine"  class="ls-session">9</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-ten"  class="ls-session">10</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-eleven"  class="ls-session">11</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-twelve"  class="ls-session">12</a></td></tr>
+    </table>
+    <div class="hero-unit" style="display:none;">
+       <h3><span id="session-counter"></span></h3>
+       <span id="max-days"></span> <br/> <br/>
+       <span id="distinction-perc"></span> <br/>
+       <span id="second-perc"></span> <br/>
+       <span id="third-perc"></span> </br> <br/>
+       
+    </div>
+        <h3 class="page-header-gender" style="display:none;"><a href="#visualization">MP Attendance</a> | <a href="#gender-heading">Attendance classification by Gender</a> | <a href="#party-heading"> Classification by Party</a> </h3>
+    <div id="visualization"></div><br/>
+        <h4 id="gender-heading" style="display:none;">Attendance classification by Gender</h4>
+        <table>
+           <tr> <td> <div id="fgender"> </div> </td> 
+            <td> <div id="mgender"> </div> </td> </tr>
+        </table>
+    <h4 style="display:none;">Classification by Party</h4>
+    <div id="party-heading">
+    </div> 
+        <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"> </script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            var windowWidth = 0;
+            $(function() {
+                windowWidth = $(document).width();
+            });
+        </script>
+        <script>
+            function callSVG(datafile) {
+            var totalDays = 0;
+            var perc = 0;
+            var counter = 0;
+            var margin = {top: 20, bottom: 30, left: windowWidth/4, right: windowWidth/4},
+            width = windowWidth - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
+            
+            var x = d3.scale.linear()
+                       .range([0, width]);
+
+            var y = d3.scale.linear()
+                       .range([height, 0]);
+
+            var color = d3.scale.category10();
+
+            var xAxis = d3.svg.axis()
+                .scale(x)
+                .orient("bottom");
+
+            var yAxis = d3.svg.axis()
+                .scale(y)
+                .orient("left");
+            
+            var svg = d3.select("body")
+            .append("svg")
+            //.style("display", "none")
+            .attr("width", width + margin.left + 200)
+            .attr("height", height + margin.top + margin.bottom)
+            .style("margin", "50px 0 0 0")
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            var divCircle = d3.select("body")
+            .append("div")
+            .attr("id", "tt-one")
+            .attr("class", "tool-tipp")
+            .style("visibility", "hidden")
+            .style("opacity", 0.95);
+
+            var partyTip = d3.select("body")
+            .append("div")
+            .attr("id", "tt-two")
+            .attr("class", "tool-tipp-two")
+            .style("opacity", 0);
+
+            d3.csv(datafile, function(error, data) {  
+                data.forEach(function(d) { 
+                    counter = counter + 1;
+                    totalDays = parseInt(d.DaysSigned, 10) + parseInt(d.DaysMissed, 10);
+                    perc = parseFloat(d.DaysSigned/totalDays)*100;
+                    d.perc = perc;
+                    d.signed = parseInt(d.DaysSigned, 10);
+                    d.missed = parseInt(d.DaysMissed, 10);
+                    d.counter = counter;
+                    d.mpname = d.Name;
+                    d.party = d.Party;
+                });
+
+                x.domain(d3.extent(data, function(d) { return d.perc; } )).nice();
+                y.domain(d3.extent(data, function(d) { return d.counter; } )).nice();
+ 
+               svg.append("g")
+                  .attr("class", "x axis")
+                  .attr("transform", "translate(0," + height + ")")
+                  .call(xAxis)
+                .append("text")
+                  .attr("class", "label")
+                  .attr("x", width)
+                  .attr("y", -6)
+                  .style("text-anchor", "end")
+                  .text("Days signed");
+
+              svg.append("g")
+                  .attr("class", "y axis")
+                  .call(yAxis)
+                .append("text")
+                  .attr("class", "label")
+                  .attr("transform", "rotate(-90)")
+                  .attr("y", 6)
+                  .attr("dy", ".71em")
+                  .style("text-anchor", "end")
+                  .text("Number of MPs");
+
+              svg.selectAll(".dot")
+                  .data(data)
+                .enter().append("circle")
+                  .attr("class", "dot")
+                  .attr("r", 4)
+                  .attr("cx", function(d) { return x(d.perc); })
+                  .attr("cy", function(d) { return y(d.counter); })
+                  .on("mouseover", function(d) {
+                    d3.select(this).attr("r", 10);
+                    divCircle.html(d.mpname + ' (' + d.party + ') <br> Days signed: ' + d.signed + '<br>Days missed: ' + d.missed )
+                        .style("left", (d3.event.pageX) + "px")
+                        .style("top", (d3.event.pageY -28) + "px");
+                    divCircle.style("visibility", "visible");
+                    divCircle.transition()
+                        .duration(200)
+                        .style("opacity", 0.95);
+                  })
+                  .on("mouseout", function(d) {
+                    d3.select(this).attr("r", 4);
+                    divCircle.transition()
+                        .duration(200)
+                        .style("opacity", 0);
+                  }) 
+                  .style("fill", function(d) { return color(d.party); });
+
+              // Legend data
+              var legend = svg.selectAll(".legend")
+                  .data(color.domain())
+                .enter().append("g")
+                  .attr("class", "legend")
+                  .on("mouseover", toggleParties)
+                  .on("mouseout", retainData)
+                  .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; })
+                  .style("font-size", "10px");
+
+              function toggleParties(options) {
+                var circles = d3.selectAll("svg circle");
+                var count = 0;
+                var dist = 0;
+                var distLess = 0;
+                circles.filter(function(d) {
+                    if(d.party == options) {
+                        count = count + 1;
+                        if(d.perc >= 75) {
+                            dist = dist + 1;
+                        }
+                        if(d.perc < 75) {
+                            distLess = distLess + 1;
+                        }
+                        partyTip.transition()
+                            .duration(200)
+                            .style("opacity", 0.95);
+                        partyTip.html('Party: ' + d.party + ' <br> Attendance > 75%: ' + dist + '/' + count + ' MPs')
+                        .style("left", (d3.event.pageX) + "px")
+                        .style("top", (d3.event.pageY -28) + "px");
+                        divCircle.style("visibility", "hidden");
+                    }
+                    return d.party != options;
+                })
+                .style("opacity", "0.1")
+                .attr("r", "3");
+              }
+    
+              function retainData(options) {
+                var circles = d3.selectAll("svg circle");
+                circles.filter(function(d) {
+                    return d.party == options;
+                })
+                .style("opacity", "1")
+                .attr("r", "4");
+                partyTip.transition()
+                        .duration(200)
+                        .style("opacity", 0);
+              }
+              
+              // Legend shape
+              legend.append("rect")
+                  .attr("x", width + 22)
+                  .attr("width", 18)
+                  .attr("height", 18)
+                  .style("fill", color);
+
+              // Legend text
+              legend.append("text")
+                  .attr("x", width + 44)
+                  .attr("y", 9)
+                  .attr("transform", "translate(55, 00)" )
+                  .attr("dy", ".35em")
+                  .style("text-anchor", "end")
+                  .text(function(d) { return d; });
+            });
+            
+            }
+        </script>
+    </div>
+    <input type="text" placeholder="MP Name"/>
+  </body>
+</html>
+​

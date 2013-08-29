@@ -1,0 +1,469 @@
+<!--
+You are free to copy and use this sample in accordance with the terms of the
+Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <style>
+        #visualization {
+            margin-top: -10px;
+        }
+        .fgender-icons {
+            font-weight: bold;
+        }
+   
+    </style>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+    <title>
+      Lok sabha MP attendance
+    </title>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['corechart']});
+    </script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        $("#fifteen-one").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "processRequest.php",
+                data: {'lsSessionId': 1},
+                dataType: "JSON",
+                success: function(data) {
+                    drawVis(data, 1);
+                }
+            });
+        });
+
+        $("#fifteen-two").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "processRequest.php",
+                data: {'lsSessionId': 2},
+                dataType: "JSON",
+                success: function(data) {
+                    drawVis(data, 2);
+                },
+                error: function(a, b, c) {
+                    alert("nope! - 2");
+                }
+            });
+        });
+
+        $("#fifteen-three").click(function(e) {
+            $.ajax({
+                type: "POST",
+                url: "processRequest.php",
+                data: {'lsSessionId': 3},
+                dataType: "JSON",
+                success: function(data) {
+                    drawVis(data, 3);
+                },
+                error: function(a, b, c) {
+                    alert("nope! - 3");
+                }
+            });
+            //$(this).closest('td').css("background-color", "black");
+        });
+
+        $("#fifteen-four").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "processRequest.php",
+                data: {'lsSessionId': 4},
+                dataType: "JSON",
+                success: function(data) {
+                    drawVis(data, 4);
+                }
+            });
+            //$(this).closest('td').css("background-color", "black");
+        });
+
+        $("#fifteen-five").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "processRequest.php",
+                data: {'lsSessionId': 5},
+                dataType: "JSON",
+                success: function(data) {
+                    drawVis(data, 5);
+                },
+                error: function(a, b, c) {
+                    alert("nope! - 5");
+                }
+            });
+        });
+
+        $("#fifteen-six").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "processRequest.php",
+                data: {'lsSessionId': 6},
+                dataType: "JSON",
+                success: function(data) {
+                    drawVis(data, 6);
+                },
+                error: function(a, b, c) {
+                    alert("nope! - 6");
+                }
+            });
+        });
+
+        $("#fifteen-seven").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "processRequest.php",
+                data: {'lsSessionId': 7},
+                dataType: "JSON",
+                success: function(data) {
+                    drawVis(data, 7);
+                }
+            });
+        });
+
+        $("#fifteen-eight").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "processRequest.php",
+                data: {'lsSessionId': 8},
+                dataType: "JSON",
+                success: function(data) {
+                    drawVis(data, 8);
+                },
+                error: function(a, b, c) {
+                    alert("nope!");
+                }
+            });
+        });
+
+        $("#fifteen-nine").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "processRequest.php",
+                data: {'lsSessionId': 9},
+                dataType: "JSON",
+                success: function(data) {
+                    drawVis(data, 9);
+                },
+                error: function(a, b, c) {
+                    alert("nope!");
+                }
+            });
+        });
+
+        $("#fifteen-ten").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "processRequest.php",
+                data: {'lsSessionId': 10},
+                dataType: "JSON",
+                success: function(data) {
+                    drawVis(data, 10);
+                }
+            });
+        });
+
+        $("#fifteen-eleven").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "processRequest.php",
+                data: {'lsSessionId': 11},
+                dataType: "JSON",
+                success: function(data) {
+                    drawVis(data, 11);
+                },
+                error: function(a, b, c) {
+                    alert("nope!");
+                }
+            });
+        });
+
+        $("#fifteen-twelve").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "processRequest.php",
+                data: {'lsSessionId': 12},
+                dataType: "JSON",
+                success: function(data) {
+                    drawVis(data, 12);
+                },
+                error: function(a, b, c) {
+                    alert("nope!");
+                }
+            });
+        });
+
+      });
+    </script>
+    <script type="text/javascript">
+      var i;
+      var fromDate = new Date(1999, 1, 1);
+      var toDate = new Date(1999, 12, 1);
+      var signed = 0;
+      var missed = 0;
+      var fmpCount = 0;
+      var mmpCount = 0;
+      var perc = 0.0;
+      var distinction = 0;
+      var secondClass = 0;
+      var thirdClass = 0;
+      var fmpDistinction = 0;
+      var fmpSecondClass = 0;
+      var fmpThirdClass = 0;
+      var mmpDistinction = 0;
+      var mmpSecondClass = 0;
+      var mmpThirdClass = 0;
+      var attendance = [];
+      var counts = [];
+      var result = { };
+      function drawVis(data, session) {
+        var dt = new google.visualization.DataTable();
+        var dtGender = new google.visualization.DataTable();
+        var dtMGender = new google.visualization.DataTable();
+        dt.addColumn('number', 'Days attended');
+        dt.addColumn('number', 'Number of MPs');
+        dt.addColumn({'type': 'string', 'role': 'tooltip', 'p': {'html': true}});
+        
+        dtGender.addColumn('string', 'Category');
+        dtGender.addColumn('number', 'Percentage');
+        dtMGender.addColumn('string', 'Category');
+        dtMGender.addColumn('number', 'Percentage');
+        
+        var rows = data.length;
+        for(i=0; i< rows; i++) {
+            signed = parseInt( data[i]['Days Signed'], 10 );
+            missed = parseInt( data[i]['Days Missed'], 10 );
+            perc = parseFloat( signed / (signed + missed) )*100 ;
+            /* rounds percentage to two decimal points */
+            perc = perc.toFixed(2);
+            attendance.push( perc );
+            counts.push( signed );
+            
+            // Total attendance classification for hero-unit data
+            if(perc >= 75) {
+                distinction = distinction + 1;
+            }
+            if(perc<75 && perc>=65 ) {
+                secondClass = secondClass + 1;
+            }
+            if(perc < 65) {
+                thirdClass = thirdClass + 1;
+            }
+            
+            // Attendance classification for Female | Pie chart
+            if( parseInt( data[i]['Gender'], 10) === 0 ) {
+                fmpCount = fmpCount + 1;
+                if (perc >= 75) {
+                    fmpDistinction = fmpDistinction + 1;
+                }
+                if (perc<75 && perc>=65) {
+                    fmpSecondClass = fmpSecondClass + 1;
+                }
+                if(perc < 65) {
+                    fmpThirdClass = fmpThirdClass + 1;
+                }
+            }
+            else {
+                mmpCount = mmpCount + 1;
+                if (perc >= 75) {
+                    mmpDistinction = mmpDistinction + 1;
+                }
+                if (perc<75 && perc>=65) {
+                    mmpSecondClass = mmpSecondClass + 1;
+                }
+                if(perc < 65) {
+                    mmpThirdClass = mmpThirdClass + 1;
+                }
+            }
+            
+        }
+        for(i=0; i<counts.length; i++) {
+            if(!result[counts[i]]) {
+                result[counts[i]] = 0;
+            }
+            ++result[counts[i]];
+        }
+
+        var allMPs = 0;
+
+        for (i=1; i <= Math.max.apply(Math, counts); i++) {
+            allMPs = allMPs + result[i];
+        }
+        zeroAttendance = 541 - allMPs;
+        dt.addRow( [ 0, zeroAttendance, zeroAttendance + ' out of 541 MPs attended 0 days' ] );
+        for (i=1; i <= Math.max.apply(Math, counts); i++) {
+            dt.addRow( [ i, result[i], result[i] + ' out of 541 MPs attended ' + i + ' days' ] );
+        }
+        
+        dtGender.addRow( [ '>=75%', fmpDistinction ] ); 
+        dtGender.addRow( [ '65%-75%', fmpSecondClass ] );
+        dtGender.addRow( [ '<65%', fmpThirdClass ] );
+        
+        dtMGender.addRow( [ '>=75%', distinction - fmpDistinction ] ); 
+        dtMGender.addRow( [ '65%-75%', secondClass - fmpSecondClass ] );
+        dtMGender.addRow( [ '<65%', thirdClass - fmpThirdClass ] );
+
+        if(session === 1) {
+            fromDate = new Date('June 01, 2009'); toDate = new Date('June 09, 2009');
+        }
+        if(session === 2) {
+            fromDate = new Date('July 02, 2009'); toDate = new Date('August 07, 2009');
+        }
+        if(session === 3) {
+            fromDate = new Date('November 19, 2009'); toDate = new Date('December 21, 2009');
+        }
+        if(session === 4) {
+            fromDate = new Date('February 22, 2010'); toDate = new Date('March 16, 2010');
+        }
+        if(session === 5) {
+            fromDate = new Date('July 26, 2010'); toDate = new Date('August 31, 2010');
+        }
+        if(session === 6) {
+            fromDate = new Date('November 09, 2010'); toDate = new Date('December 13, 2010');
+        }
+        if(session === 7) {
+            fromDate = new Date('February 21, 2011'); toDate = new Date('March 25, 2011');
+        }
+        if(session === 8) {
+            fromDate = new Date('August 01, 2011'); toDate = new Date('September 08, 2011');
+        }
+        if(session === 9) {
+            fromDate = new Date('November 22, 2011'); toDate = new Date('December 29, 2011');
+        }
+        if(session === 10) {
+            fromDate = new Date('March 12, 2012'); toDate = new Date('May 22, 2012');
+        }
+        if(session === 11) {
+            fromDate = new Date('August 08, 2012'); toDate = new Date('September 07, 2012');
+        }
+        if(session === 12) {
+            fromDate = new Date('November 22, 2012'); toDate = new Date('December 20, 2012');
+        }
+
+        // 22.02.2010 To 16.03.2010 and 12.04.2010 to 07.05.2010
+        $(".hero-unit").show();
+        $("#session-counter").text('Session: '+session);
+        //$("#max-days").text('Total days: ' + Math.max.apply(Math, counts) + '( ' + fromDate.toLocaleString().slice(0, -11) + ' - ' + toDate.toLocaleString().slice(0, -11) + ' )' );
+        $("#max-days").text('Total days: ' + Math.max.apply(Math, counts) + ' ( ' + fromDate + ' - ' + toDate + ' )' );
+        $("#distinction-perc").text(distinction + ' MPs with 75% or more attendance');
+        $("#second-perc").text(secondClass + ' MPs with 65%-75% attendance');
+        $("#third-perc").text(thirdClass + ' MPs with less than 65% attendance');
+        $(".page-header-gender").show();
+        $("#gender-heading").show();
+
+        // Create and draw the visualization.
+        $("#fgender-1").empty(); $("#fgender-2").empty(); $("#fgender-3").empty();
+        $("#mgender-1").empty(); $("#mgender-2").empty(); $("#mgender-3").empty();
+
+        $(".fgender-icons").show();
+        var dist = Math.ceil( ( fmpDistinction/fmpCount) * 10);
+        var secnd = Math.ceil( (fmpSecondClass/fmpCount) * 10);
+        var third = Math.ceil( (fmpThirdClass/fmpCount) * 10);
+
+        alert(fmpDistinction + ' ' + fmpCount + ' ' + dist);
+        for(i=0;i<dist;i++) {
+            $("#fgender-1").append('<img src="glyphicons/png/glyphicons_035_woman.png"></i>');
+        }
+        $("#fgender-1-count").text(fmpDistinction);
+
+        for(i=0;i<secnd;i++) {
+            $("#fgender-2").append('<img src="glyphicons/png/glyphicons_035_woman.png"></i>');
+        }
+        $("#fgender-2-count").text(fmpSecondClass);
+
+        for(i=0;i<third;i++) {
+            $("#fgender-3").append('<img src="glyphicons/png/glyphicons_035_woman.png"></i>');
+        }
+        $("#fgender-3-count").text(fmpThirdClass);
+        
+        var mdist = Math.ceil( (mmpDistinction/mmpCount) * 10 );
+        var msecnd = Math.ceil( (mmpSecondClass/mmpCount) * 10 );
+        var mthird = Math.ceil( (mmpThirdClass/mmpCount) * 10 );
+
+        for(i=0;i<mdist;i++) {
+            $("#mgender-1").append('<img src="glyphicons/png/glyphicons_003_user.png"></i>');
+        }
+        $("#mgender-1-count").text(distinction-fmpDistinction);
+
+        for(i=0;i<msecnd;i++) {
+            $("#mgender-2").append('<img src="glyphicons/png/glyphicons_003_user.png"></i>');
+        }
+        $("#mgender-2-count").text(secondClass-fmpSecondClass);
+
+        for(i=0;i<mthird;i++) {
+            $("#mgender-3").append('<img src="glyphicons/png/glyphicons_003_user.png"></i>');
+        }
+        $("#mgender-3-count").text(secondClass-fmpThirdClass);
+
+        //attendance.length = 0; counts.length = 0; result = {}; distinction = 0; secondClass = 0; thirdClass = 0;
+        //fmpDistinction = 0; fmpSecondClass = 0; fmpThirdClass = 0;
+        
+        /*var viz = new google.visualization.BarChart(document.getElementById('visualization'));
+        viz.draw(dt, { 
+                        width: 800, height: 500,
+                        hAxis: {'title': 'Number of Days' },
+                        vAxis: {'title': 'Number of MPs' }
+                     }
+                );*/
+
+        attendance.length = 0; counts.length = 0; result = {}; distinction = 0; secondClass = 0; thirdClass = 0;
+        fmpDistinction = 0; fmpSecondClass = 0; fmpThirdClass = 0; mmpDistinction = 0; mmpSecondClass = 0; mmpThirdClass = 0;
+        fmpCount = 0; mmpCount = 0;
+      }
+      
+    </script>
+  </head>
+  <body style="font-family: Arial;border: 0 none;">
+    <div class="container">
+        <h3>MAP - MPs Attending Parliament </h3>
+    </div>
+   <div class="container" id="top-container">
+    <h3>XV Lok Sabha</h3>
+    <h4>Number of sessions: 12</h4>
+    <table class="table">
+        <!--th>Session</th-->
+        <tr><td><a href="javascript:void(0);" id="fifteen-one" class="ls-session">1</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-two"  class="ls-session">2</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-three"  class="ls-session">3</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-four"  class="ls-session">4</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-five"  class="ls-session">5</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-six"  class="ls-session">6</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-seven"  class="ls-session">7</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-eight"  class="ls-session">8</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-nine"  class="ls-session">9</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-ten"  class="ls-session">10</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-eleven"  class="ls-session">11</a></td>
+        <td><a href="javascript:void(0);" id="fifteen-twelve"  class="ls-session">12</a></td></tr>
+    </table>
+    <div class="hero-unit" style="display:none;">
+       <h3><span id="session-counter"></span></h3>
+       <span id="max-days"></span> <br/> <br/>
+       <span id="distinction-perc"></span> <br/>
+       <span id="second-perc"></span> <br/>
+       <span id="third-perc"></span>
+    </div>
+    <h3 class="page-header-gender" style="display:none;"><a href="#visualization">MP Attendance</a> | <a href="#gender-heading">Attendance classification by Gender</a></h3>
+    <div id="visualization"></div><br/>
+    <h4 id="gender-heading" style="display:none;">Attendance classification by Gender</h4>
+    <div id="fgender">
+        <table class="fgender-icons table" style="display:none;">
+            <tr><td>Distinction</td><td><span id="fgender-1"></span></td>      <td><span id="fgender-1-count"></span></td></tr>
+            <tr><td>Second class</td><td><span id="fgender-2"></span></td>   <td><span id="fgender-2-count"></span></td></tr>
+            <tr><td>Third class</td><td><span id="fgender-3"></span></td>   <td><span id="fgender-3-count"></span></td></tr>
+        </table>
+    </div>
+    <div id="mgender">
+        <table class="fgender-icons table" style="display:none;">
+            <tr><td>Distinction</td><td><span id="mgender-1"></span></td>      <td><span id="mgender-1-count"></span></td></tr>
+            <tr><td>Second class</td><td><span id="mgender-2"></span></td>   <td><span id="mgender-2-count"></span></td></tr>
+            <tr><td>Third class</td><td><span id="mgender-3"></span></td>   <td><span id="mgender-3-count"></span></td></tr>
+        </table>
+    </div>
+    </div>
+  </body>
+</html>
+​

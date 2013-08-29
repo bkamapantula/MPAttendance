@@ -1,0 +1,40 @@
+
+#tt-two {
+    padding-top: 25px;
+}
+
+.first-class, .second-class, .third-class {
+    width: 31%;
+    float: left;
+    overflow: auto;
+    border-style: solid;
+    /*-webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;*/
+}
+.first-class {
+    border-color: blue;
+}
+.second-class {
+    border-color: green;
+}
+.third-class {
+    border-color: black;
+}
+.mp-container {
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+.main-svg {
+    float: left;
+    width: 65%;
+    overflow: auto;
+}
+.mp-info {
+    float: left;
+    height: 75%;
+    width: 35%;
+    overflow: auto;
+}
+
