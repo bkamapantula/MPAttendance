@@ -15,9 +15,9 @@
                 <button id="reset-graph">Reset</button->
                 <input type="text" placeholder="MP Name"/-->
                 <div class="mp-info">
-                    <div class="first-class"> <table class="table table-one"> </table> </div>
-                    <div class="second-class"> <table class="table table-two"> </table>
-                    <table class="table table-three"> </table>
+                    <div class="first-class"> <table class="table table-one"> <tr> <th> Attendance >= 75% </th> </tr> </table> </div>
+                    <div class="second-class"> <table class="table table-two"> </table> </div>
+                    <div class="third-class"> <table class="table table-three"> </table> </div>
                     <!--div class="first-class"> </div>
                     <div class="second-class"> </div>
                     <div class="third-class"> </div-->

@@ -136,7 +136,9 @@ d3.csv("15-1.csv", function(error, data) {
     var count = 0;
     var dist = 0;
     var distLess = 0;
-    $(".first-class").append("Attendance >= 75%");
+    $(".table-one").append("<tr> <th> First class </th> </tr>");
+    $(".table-two").append("<tr> <th> Second class </th> </tr>");
+    $(".table-three").append("<tr> <th> Third class </th> </tr>");
     circles.filter(function(d) {
         // to display MP names in mp-info div
         var filteredNodes = data.filter(function(MP) {
@@ -176,10 +178,6 @@ d3.csv("15-1.csv", function(error, data) {
     $(".third-class").append(third_class_content);*/
   }
   
-  // adds Party information to tooltip two
-  function addPartyInformation(d, dist, count) {
-  
-  }
   // adds MP names to first, second, third classes
   function addContent(d, to_be_replaced, grade) {
     if(grade === 1) {
@@ -205,6 +203,7 @@ d3.csv("15-1.csv", function(error, data) {
       .attr("transform", "translate(55, 00)" )
       .attr("dy", ".35em")
       .style("text-anchor", "end")
-      .text(function(d) { return d; });
+      .text(function(d) { return d; })
+      .sort();
 });
 
