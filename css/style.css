@@ -1,16 +1,11 @@
-
-#tt-two {
+#tt-one, #tt-two {
     padding-top: 25px;
 }
-
 .first-class, .second-class, .third-class {
     width: 31%;
     float: left;
     overflow: auto;
     border-style: solid;
-    /*-webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;*/
 }
 .first-class {
     border-color: blue;
@@ -33,7 +28,7 @@
 }
 .mp-info {
     float: left;
-    height: 75%;
+    height: 50%;
     width: 35%;
     overflow: auto;
 }

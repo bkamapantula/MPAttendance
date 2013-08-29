@@ -1,12 +1,4 @@
-body {
-    /*font-family: Helvetica, sans serif;
-    font-size: 12px;*/
-}
-div {
-    font-weight: bold;
-    font-size: 16px;
-}
-#tt-two {
+#tt-one, #tt-two {
     padding-top: 25px;
 }
 
@@ -15,9 +7,6 @@ div {
     float: left;
     overflow: auto;
     border-style: solid;
-    /*-webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;*/
 }
 .first-class {
     border-color: blue;
@@ -40,7 +29,7 @@ div {
 }
 .mp-info {
     float: left;
-    height: 75%;
+    height: 50%;
     width: 35%;
     overflow: auto;
 }
