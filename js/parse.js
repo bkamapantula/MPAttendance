@@ -127,7 +127,8 @@ d3.csv("15-1.csv", function(error, data) {
         second_class_content = '',
         third_class_content = '';
   function toggleParties(options) {
-    $(".first-class, .second-class, .third-class").empty();
+    //$(".first-class, .second-class, .third-class").empty();
+    $("table").empty();
     first_class_content = '';
     second_class_content = '';
     third_class_content = '';
@@ -135,7 +136,6 @@ d3.csv("15-1.csv", function(error, data) {
     var count = 0;
     var dist = 0;
     var distLess = 0;
-    $(".first-class").append("Attendance >= 75%");
     circles.filter(function(d) {
         // to display MP names in mp-info div
         var filteredNodes = data.filter(function(MP) {
@@ -167,9 +167,12 @@ d3.csv("15-1.csv", function(error, data) {
     .attr("r", "3");
     
     // adds content in the end
-    $(".first-class").append(first_class_content);
+    $(".table-one").append(first_class_content);
+    $(".table-two").append(second_class_content);
+    $(".table-three").append(third_class_content);
+    /*$(".first-class").append(first_class_content);
     $(".second-class").append(second_class_content);
-    $(".third-class").append(third_class_content);
+    $(".third-class").append(third_class_content);*/
   }
   
   // adds Party information to tooltip two
@@ -179,11 +182,11 @@ d3.csv("15-1.csv", function(error, data) {
   // adds MP names to first, second, third classes
   function addContent(d, to_be_replaced, grade) {
     if(grade === 1) {
-        first_class_content += d.mpname.replace(to_be_replaced, "");
+        first_class_content += '<tr><td>' + d.mpname.replace(to_be_replaced, "") + '</td></tr>';
     } else if (grade === 2) {
-        second_class_content += d.mpname.replace(to_be_replaced, "");
+        second_class_content += '<tr><td>' + d.mpname.replace(to_be_replaced, "") + '</td></tr>';
     } else if (grade === 3) {
-        third_class_content += d.mpname.replace(to_be_replaced, "");
+        third_class_content += '<tr><td>' + d.mpname.replace(to_be_replaced, "") + '</td></tr>';
     }
   }
 

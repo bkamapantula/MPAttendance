@@ -2,20 +2,11 @@
     padding-top: 25px;
 }
 .first-class, .second-class, .third-class {
-    width: 31%;
+    width: 33%;
     float: left;
     overflow: auto;
-    border-style: solid;
 }
-.first-class {
-    border-color: blue;
-}
-.second-class {
-    border-color: green;
-}
-.third-class {
-    border-color: black;
-}
+
 .mp-container {
     margin-left: auto;
     margin-right: auto;
