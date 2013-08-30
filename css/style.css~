@@ -24,3 +24,9 @@
     overflow: auto;
 }
 
+body {
+    margin-top: 40px;
+}
+.attendance-info {
+    float: right;
+}

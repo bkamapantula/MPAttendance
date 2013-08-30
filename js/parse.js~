@@ -1,10 +1,12 @@
 $(function() {
     $("div#tt-one").next().append( $('div#tt-two') );
-    $("#reset-graph").on("click", function(e) { });
+    $("#reset-graph").on("click", function(e) {
+        alert("reset please!");
+    });
     $("#change-session").on("change", function(e) {
         //console.log( $("#change-session").val() );
         loadSVG($("#change-session").val());
-    })
+    });
 });
 
 function loadSVG(session) {
@@ -14,7 +16,7 @@ function loadSVG(session) {
     var counter = 0;
     var margin = {top: 20, bottom: 30, left: 50, right: 80},
     width = 520, // - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    height = 500 - margin.top - margin.bottom;
 
     var x = d3.scale.linear()
                .range([0, width]);
@@ -51,7 +53,7 @@ function loadSVG(session) {
     .attr("class", "tooltip")
     .style("opacity", 0.5);
 
-    d3.csv("s-"+session+"-all-t.csv", function(error, data) {  
+    d3.csv("data/s-"+session+"-all-t-info.csv", function(error, data) {  
         data.forEach(function(d) { 
             counter = counter + 1;
             totalDays = parseInt(d.DaysSigned, 10) + parseInt(d.DaysMissed, 10);
@@ -97,7 +99,7 @@ function loadSVG(session) {
           .attr("cx", function(d) { return x(d.perc); })
           .attr("cy", function(d) { return y(d.counter); })
           .on("mouseover", function(d) {
-            d3.select(this).attr("r", 10);
+            d3.select(this).attr("r", 6);
             $("#tt-one").html(d.mpname + ' (' + d.party + ') || Days signed (missed): ' + d.signed + ' (' + d.missed + ')' );
           })
           .on("mouseout", function(d) {
@@ -137,11 +139,9 @@ function loadSVG(session) {
         third_class_content = '';
         var circles = d3.selectAll("svg circle");
         var count = 0;
-        var dist = 0;
-        var distLess = 0;
-        $(".table-one").append("<tr> <th> First class </th> </tr>");
-        $(".table-two").append("<tr> <th> Second class </th> </tr>");
-        $(".table-three").append("<tr> <th> Third class </th> </tr>");
+        var dist = 0,
+            distLess = 0,
+            distThird = 0;
         circles.filter(function(d) {
             // to display MP names in mp-info div
             var filteredNodes = data.filter(function(MP) {
@@ -157,15 +157,15 @@ function loadSVG(session) {
                     d.mpname.indexOf("Shri") != -1 ? addContent(d, "Shri", 1) : d.mpname.indexOf("Smt.") != -1 ? addContent(d, "Smt.", 1) : addContent(d, "", 1);
                 }
                 if(d.perc >= 65 && d.perc < 75) {
-                    distLess = distLess + 1;
+                    distSecond = distSecond + 1;
                     d.mpname.indexOf("Shri") != -1 ? addContent(d, "Shri", 2) : d.mpname.indexOf("Smt.") != -1 ? addContent(d, "Smt.", 2) : addContent(d, "", 2);
                 }
                 if(d.perc < 65) {
-                    distLess = distLess + 1;
+                    distThird = distThird + 1;
                     d.mpname.indexOf("Shri") != -1 ? addContent(d, "Shri", 3) : d.mpname.indexOf("Smt.") != -1 ? addContent(d, "Smt.", 3) : addContent(d, "", 3);
                 }
                 //partyTip
-                $("#tt-two").html('Party: ' + d.party + ' || Attendance > 75%: ' + dist + '/' + count + ' MPs');
+                //$("#tt-two").html('Party: <strong>' + d.party + '</strong> <ul> <li> Attendance >= 75%: ' + dist + '/' + count + ' MPs </li> <li> 65% <= Attendance < 75% ' + distLess + '/' + count + '</li> <li> 65% <= Attendance < 75% ' + distThird + '/' + count + '</li> </ul>' );
             }
             return d.party != options;
         })
@@ -173,6 +173,9 @@ function loadSVG(session) {
         .attr("r", "3");
         
         // adds content in the end
+        $(".table-one").append("<tr> <th> First class (" + dist + "/" + count + ")</th> </tr>");
+        $(".table-two").append("<tr> <th> Second class (" + distSecond + "/" + count + ")</th> </tr>");
+        $(".table-three").append("<tr> <th> Third class (" + distThird + "/" + count + ")</th> </tr>");
         $(".table-one").append(first_class_content);
         $(".table-two").append(second_class_content);
         $(".table-three").append(third_class_content);

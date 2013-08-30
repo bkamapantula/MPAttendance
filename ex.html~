@@ -9,32 +9,39 @@
     <body>
         <div class="container">
             <div class="page-header">
-                <h1> Lok Sabha </h1>
+                <h1> 15th Lok Sabha </h1>
             </div>
+            <select id="change-session">
+                <option value="0">Select</option>
+                <option value="1">Session 1</option>
+                <option value="2">Session 2</option>
+                <option value="3">Session 3</option>
+                <option value="4">Session 4</option>
+            </select>
+            <button id="reset-graph">Reset</button>
             <div class="mp-container">
-                <select id="change-session">
-                    <option value="0">Select</option>
-                    <option value="1">Session 1</option>
-                    <option value="2">Session 2</option>
-                    <option value="3">Session 3</option>
-                    <option value="4">Session 4</option>
-                </select>
                 <div class="main-svg">
                     <script type="text/javascript" src="js/parse.js"> </script>
-                </div> <!-- end of main-svg class->
-                <button id="reset-graph">Reset</button->
-                <input type="text" placeholder="MP Name"/-->
+                </div> <!-- end of main-svg class-->
+                <!--input type="text" placeholder="MP Name"/-->
                 <div class="mp-info">
                     <div class="first-class"> <table class="table table-one"> </table> </div>
                     <div class="second-class"> <table class="table table-two"> </table> </div>
                     <div class="third-class"> <table class="table table-three"> </table> </div>
-                    <!--div class="first-class"> </div>
-                    <div class="second-class"> </div>
-                    <div class="third-class"> </div-->
                 </div>
             </div> <!--mp-container class ends-->
-            <div id="tt-one"> </div>
-            <div id="tt-two"> </div>
+            <div class="attendance-info">
+                <div id="tt-two"> </div>
+                <div id="tt-one"> </div>
+            </div>
+            <p class="text-right"> 
+                <ul class="pull-right"> 
+                <h3>Class information</h3>
+                    <li>First class - 75% and above attendance</li>
+                    <li>Second class - 65%-75% attendance</li>
+                    <li>Third class - below 65% attendance</li>
+                </ul>
+            </p>
         </div> <!--container class ends-->
     </body>
 </html>
