@@ -24,3 +24,6 @@
     overflow: auto;
 }
 
+body {
+    margin-top: 40px;
+}

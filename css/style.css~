@@ -2,7 +2,7 @@
     padding-top: 25px;
 }
 .first-class, .second-class, .third-class {
-    width: 31%;
+    width: 33%;
     float: left;
     overflow: auto;
 }
