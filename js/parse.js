@@ -137,6 +137,7 @@ function loadSVG(session) {
             second_class_content = '',
             third_class_content = '';
       function toggleParties(options) {
+        //$("input[type=text]").show();
         $("table").empty();
         first_class_content = '';
         second_class_content = '';

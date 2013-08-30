@@ -8,7 +8,7 @@ $(function() {
 			.style("stroke-width", 5);
     });
     $("#change-session").on("change", function(e) {
-        $("svg").empty();
+        $("svg").remove();
         loadSVG($("#change-session").val());
     });
 });
@@ -137,6 +137,7 @@ function loadSVG(session) {
             second_class_content = '',
             third_class_content = '';
       function toggleParties(options) {
+        $("input[type=text]").show();
         $("table").empty();
         first_class_content = '';
         second_class_content = '';
