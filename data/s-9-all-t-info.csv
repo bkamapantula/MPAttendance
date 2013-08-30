@@ -1,0 +1,472 @@
+Id,Name,DaysSigned,DaysMissed,Gender,State,Party,Constituency
+3,Smt.  Sonia  Gandhi,15,9,0,Uttar Pradesh,INC,Rai Bareli
+11,Shri  Ajit  Singh,2,22,1,Uttar Pradesh,RJD,Baghpat
+29,Shri  Harish  Rawat,24,0,1,Uttarakhand,INC,Hardwar
+30,Smt.  Chandresh  Kumari,21,3,0,Rajasthan,INC,Jodhpur
+38,Shri  Jitender  Singh,1,23,1,Haryana,INC,Sonipat
+39,Shri  Manish  Tewari,24,0,1,Punjab,INC,Ludhiana
+53,Shri  Pratik  Patil,14,10,1,Maharashtra,INC,Sangli
+55,Dr.  Shashi  Tharoor,22,2,1,Kerala,INC,Thiruvananthapuram
+60,Shri    Kodikunnil  Suresh,22,2,1,Kerala,INC,Mavelikkara
+62,Shri  K. J.S.P.  Reddy,20,4,1,Andhra Pradesh,INC,
+63,Shri  A.H.   Khan  Choudhury,16,8,1,West Bengal,INC,Maldaha Dakshin
+64,Shri  Adhir Ranjan  Chowdhury,20,4,1,West Bengal,INC,Baharampur
+65,Smt.  Ranee  Narah,24,0,0,Assam,INC,Lakhimpur
+66,Shri   Sarvey  Sathyanarayana,14,10,1,Andhra Pradesh,INC,
+67,Shri  Ninong  Ering,21,3,1,Arunachal Pradesh,INC,
+68,Smt.  Deepa  Dasmunsi,22,2,0,West Bengal,INC,
+69,Shri  P.  Balram  Naik,19,5,1,Andhra Pradesh,INC,
+70,Dr.  Krupa Rani  Killi,22,2,0,Andhra Pradesh,INC,
+71,Shri  Lal Chand  Kataria,23,1,1,Rajasthan,INC,
+72,Shri  Sandeep  Dikshit,24,0,1,NCT of Delhi,INC,
+73,Shri  J.M.  Aaron Rashid,17,7,1,Tamil Nadu,INC,
+74,Shri  Arun  Yadav,21,3,1,Madhya Pradesh,INC,
+75,Shri  Naveen  Jindal,23,1,1,Haryana,INC,
+76,Shri  Madhu Goud  Yaskhi,22,2,1,Andhra Pradesh,INC,
+77,Shri  Satpal  Maharaj,19,5,1,Uttarakhand,INC,
+78,Shri  Vincent H.  Pala,6,18,1,Uttarakhand,INC,
+78,Shri  Vijay  Bahuguna,23,1,1,Uttarakhand,INC,
+78,Shri  Vincent H.  Pala,6,18,1,Meghalaya,INC,
+78,Shri  Vijay  Bahuguna,23,1,1,Meghalaya,INC,
+79,Shri  Madan Lal  Sharma,23,1,1,Jammu and Kashmir,INC,
+80,Chaudhary  Lal  Singh,22,2,1,Jammu and Kashmir,INC,
+81,Shri  Mohammed  Azharuddin,18,6,1,Uttar Pradesh,INC,
+82,Shri  Hamdullah  Sayeed,21,3,1,Lakshadweep,INC,
+83,Shri  Ashok  Tanwar,17,7,1,Haryana,INC,
+84,Shri  K.C.  Singh Baba,21,3,1,Uttarakhand,INC,
+85,Shri  Vijay Inder  Singla,20,4,1,Punjab,INC,
+88,Shri  Sabbam  Hari,20,4,1,Andhra Pradesh,INC,
+89,Shri  Ravneet  Singh,21,3,1,Punjab,INC,
+90,Shri  Mahabal  Mishra,24,0,1,NCT of Delhi,INC,
+91,Shri  Ramesh  Kumar,24,0,1,NCT of Delhi,INC,
+92,Shri  Ismail Hussain,24,0,1,Assam,INC,
+93,Shri  Mohammad Asrarul  Haque,22,2,1,Bihar,INC,
+94,Shri  Takam  Sanjoy,16,8,1,Arunachal Pradesh,INC,
+97,Shri  P.  Viswanathan,21,3,1,Tamil Nadu,INC,
+98,Shri  Sheesh Ram  Ola,23,1,1,Rajasthan,INC,
+99,Shri  T.R.  Baalu,21,3,1,Tamil Nadu,DMK,
+100,Shri  Vilasrao Baburao  Muttemwar,23,1,1,Maharashtra,INC,
+101,Shri  Manikrao Hodlya  Gavit,23,1,1,Maharashtra,INC,
+102,Shri  Suresh  Kalmadi,1,23,1,Maharashtra,INC,
+104,Shri  A. Sai Prathap,20,4,1,Andhra Pradesh,INC,Rajampet
+106,Dr.    Chinta Mohan,21,3,1,Andhra Pradesh,INC,Tirupathi
+107,Shri  Biren Singh  Engti,24,0,1,Assam,INC,
+108,Dr.  Kavuri Samba Siva  Rao,20,4,1,Andhra Pradesh,INC,Eluru
+110,Shri  Jai Prakash  Agarwal,24,0,1,NCT of Delhi,INC,
+112,Shri  Datta  Meghe,21,3,1,Maharashtra,INC,
+113,Shri   Rayapati S.  Rao,18,6,1,Andhra Pradesh,INC,Guntur
+115,Dr.  Manda  Jagannath,16,8,1,Andhra Pradesh,INC,Nagarkurnool
+116,Shri  A. Venkatarami  Reddy,22,2,1,Andhra Pradesh,INC,Anantapur
+117,Shri  Somabhai Gandalal Koli  Patel,23,1,1,Gujarat,INC,
+118,Shri  Avtar Singh  Bhadana,12,12,1,Haryana,INC,
+119,Shri  P.C.  Chacko,24,0,1,Kerala,INC,Thrissur
+120,Dr.  Girija  Vyas,23,1,0,Rajasthan,INC,Chittorgarh
+121,Shri  Inderjit Singh  Rao,22,2,1,Haryana,INC,Gurgaon
+123,Shri  Sanjay  Nirupam,24,0,1,Maharashtra,INC,Mumbai North
+124,Shri  Dip  Gogoi,19,5,1,Assam,INC,Kaliabor
+126,Shri  Francisco  Sardinha,21,3,1,Goa,INC,South Goa
+127,Shri  Magunta Srinivasulu  Reddy,19,5,1,Andhra Pradesh,INC,Ongole
+128,Shri  N.S.V.  Chitthan,24,0,1,Tamil Nadu,INC,Dindigul
+129,Dr.  Arvind Kumar  Sharma,19,5,1,Haryana,INC,
+130,Dr.  Sanjay  Singh,17,7,1,Uttar Pradesh,INC,
+131,Shri  Jayant  Chaudhary,20,4,1,Uttar Pradesh,RLD,
+132,Shri  Bhaskarrao  Patil  Khatgaonkar,17,7,1,Maharashtra,INC,
+133,Shri  Deepender Singh  Hooda,18,6,1,Haryana,INC,
+134,Shri  Bhakta Charan  Das,19,5,1,Orissa,INC,
+135,Shri  Tarachand  Bhagora,22,2,1,Rajasthan,INC,
+137,Rajkumari  Ratna  Singh,22,2,0,Uttar Pradesh,INC,
+138,Smt.  Priya  Dutt,14,10,0,Maharashtra,INC,
+139,Smt.  Santosh  Chowdhary,21,3,0,Punjab,INC,
+140,Sardar  Sukhdev  Singh    Libra,23,1,1,Punjab,INC,
+141,Shri  Gajendra Singh  Rajukhedi,23,1,1,Madhya Pradesh,INC,
+142,Shri  Sanjay Singh  Chauhan,23,1,1,Uttar Pradesh,RLD,
+143,Shri  Anjan Kumar  Yadav. M,20,4,1,Andhra Pradesh,INC,Secunderabad
+144,Shri  Gutha  Sukender Reddy,16,8,1,Andhra Pradesh,INC,Nalgonda
+145,Shri  G.V.  Harsha Kumar,24,0,1,Andhra Pradesh,INC,Amalapuram
+146,Shri  Aruna Kumar  Vundavalli,24,0,1,Andhra Pradesh,INC,Rajahmundry
+147,Shri  S.P.Y.  Reddy,13,11,1,Andhra Pradesh,INC,Nandyal
+148,Shri  Lalit  Mohan  Suklabaidya,22,2,1,Assam,INC,
+149,Shri  Vikrambhai Arjanbhai  Maadam    Ahir,21,3,1,Gujarat,INC,
+150,Shri    Lagadapati   Rajagopal,20,4,1,Andhra Pradesh,INC,Vijayawada
+151,Smt.    Botcha Jhansi Lakshmi,19,5,0,Andhra Pradesh,INC,Vizianagaram
+153,Shri    Bapiraju  Kanumuru,16,8,1,Andhra Pradesh,INC,Narasapur
+154,Shri  Kishan V.  Patel,18,6,1,Gujarat,INC,
+155,Shri  Eknath  Gaikwad,23,1,1,Maharashtra,INC,
+156,Dr.  Thokchom  Meinya,24,0,1,Manipur,INC,
+157,Shri  M.  Krishnaswamy,23,1,1,Tamil Nadu,INC,
+158,Dr.  Nirmal  Khatri,24,0,1,Uttar Pradesh,INC,
+160,Smt.  Shruti  Choudhry,5,19,0,Haryana,INC,
+161,Dr.  Prabha Kishore  Taviad,24,0,0,Gujarat,INC,
+162,Smt.  Rajesh Nandini  Singh,16,8,0,Madhya Pradesh,INC,
+163,Ms.  Mausam  Noor,16,8,0,West Bengal,INC,
+164,Smt.  Sarika  D.S. Baghel,24,0,0,Uttar Pradesh,RLD,
+165,Smt.  Annu  Tandon,21,3,0,Uttar Pradesh,INC,
+166,Smt.  Meenakshi  Natrajan,21,3,0,Madhya Pradesh,INC,
+167,Dr.  Jyoti  Mirdha,24,0,0,Rajasthan,INC,
+168,Shri  Devendra  Nagpal,12,12,1,Uttar Pradesh,RLD,
+169,Shri  Manicka  Tagore,24,0,1,Tamil Nadu,INC,
+170,Shri  Prabhakar  Ponnam,23,1,1,Andhra Pradesh,INC,
+171,Shri  Sajjan Singh  Verma,22,2,1,Madhya Pradesh,INC,
+172,Shri  Abdul Mannan  Hossain,15,9,1,West Bengal,INC,
+173,Shri  S.  Alagiri,17,7,1,Tamil Nadu,INC,
+174,Shri  Basori Singh  Masram,23,1,1,Madhya Pradesh,INC,
+175,Shri  Kuvarjibhai Mohanbhai  Bavalia,16,8,1,Gujarat,INC,
+176,Shri   Vitthalbhai  Harnsrajbhai   Radadiya,9,15,1,Gujarat,INC,
+177,Dr.  G.  Vivekanand,19,5,1,Andhra Pradesh,INC,
+178,Shri  Suresh Kumar  Shetkar,17,7,1,Andhra Pradesh,INC,
+179,Shri  Mukeshkumar  Bheiravdanji  Gadhvi,23,1,1,Gujarat,INC,
+180,Shri  Jagdish  Thakor,18,6,1,Gujarat,INC,
+181,Shri  Adagooru  Vishwanath,19,5,1,Karnataka,INC,
+182,Shri  R.  Dhruvanarayana,22,2,1,Karnataka,INC,
+183,Shri  K.  Sudhakaran,18,6,1,Kerala,INC,Kannur
+185,Shri  M. K.  Raghavan,18,6,1,Kerala,INC,Kozhikode
+186,Shri  K. P.  Dhanapalan,24,0,1,Kerala,INC,Chalakudy
+187,Shri  Dara Singh  Chauhan,22,2,1,Uttar Pradesh,BSP,
+188,Shri    Lalu Prasad,18,6,1,Bihar,RJD,
+190,Shri  T.K.S.  Elangovan,22,2,1,Tamil Nadu,DMK,
+192,Smt.  Supriya  Sule,23,1,0,Maharashtra,NCP,
+193,Shri   Udayanraje  Bhonsle,5,19,1,Maharashtra,NCP,
+194,Shri  Sameer  Bhujbal,17,7,1,Maharashtra,NCP,
+195,Shri  D.  Venugopal,17,7,1,Tamil Nadu,AIADMK,
+196,Shri  Kalyan  Banerjee,18,6,1,West Bengal,AITC,
+197,Shri  A.K.S.  Vijayan,17,7,1,Tamil Nadu,DMK,
+198,Shri  E.G.  Sugavanam,19,5,1,Tamil Nadu,DMK,
+199,Shri    Adhi Sankar,9,15,1,Tamil Nadu,DMK,
+200,Dr.  Sanjeev Ganesh  Naik,24,0,1,Maharashtra,NCP,
+201,Shri  Asaduddin  Owaisi,19,5,1,Andhra Pradesh,AIMIM,Hyderabad
+202,Shri  Sansuma Khunggur  Bwiswmuthiary,12,12,1,Assam,BPF,
+203,Dr.  Raghuvansh Prasad  Singh,24,0,1,Bihar,RJD,
+204,Shri  Hassan  Khan,24,0,1,Jammu and Kashmir,IND,
+205,Shri  Sadashivrao Dadoba  Mandlik,11,13,1,Maharashtra,IND,
+206,Shri  R.  Thamaraiselvan,23,1,1,Tamil Nadu,DMK,
+207,Shri    Abdul Rahman,16,8,1,Tamil Nadu,DMK,
+208,Shri  Somendranath  Mitra,16,8,1,West Bengal,AITC,
+210,Shri  Badruddin  Ajmal,16,8,1,Assam,AUDF,
+211,Shri  Babu Lal  Marandi,8,16,1,Jharkhand,JVMP,
+212,Shri  Mirza Mehboob  Beg,23,1,1,Jammu and Kashmir,JKNC,
+213,Shri  Jagdambika  Pal,21,3,1,Uttar Pradesh,INC,
+214,Shri  N.Dharam  Singh,16,8,1,Karnataka,INC,
+215,Shri  H.D.  Kumaraswamy,5,19,1,Karnataka,JDS,
+217,Dr.  Kakoli Ghosh  Dastidar,20,4,1,West Bengal,AITC,
+218,Shri  K. R. G.  Reddy,13,11,1,Andhra Pradesh,INC,Bhongir
+219,Shri  Rajaiah  Siricilla,23,1,1,Andhra Pradesh,INC,Warangal
+220,Shri  Jitendra  Singh Malik,16,8,1,Rajasthan,INC,
+221,Shri  P.L.  Punia,24,0,1,Uttar Pradesh,INC,
+222,Shri  Kamal  Kishor   Commando,20,4,1,Uttar Pradesh,INC,
+223,"Dr.  Vinay Kumar  Panday ""Vinnu""",18,6,1,Uttar Pradesh,INC,
+224,Shri  Harsh  Vardhan,12,12,1,Uttar Pradesh,INC,
+225,Shri  Praveen Singh  Aron,21,3,1,Uttar Pradesh,INC,
+226,Shri  Pradeep  Tamta,24,0,1,Uttarakhand,INC,
+227,Shri  S. S.  Ramasubbu,23,1,1,Tamil Nadu,INC,
+228,Shri  Sharief Ud Din  Shariq,20,4,1,Jammu and Kashmir,JKNC,
+229,Shri  Mahesh  Joshi,24,0,1,Rajasthan,INC,
+230,Shri  Ijyaraj  Singh,24,0,1,Rajasthan,INC,
+231,Shri  E. T. Muhammed  Basheer,21,3,1,Kerala,MLKSC,
+232,Shri  Gopal  Singh  Shekhawat,22,2,1,Rajasthan,INC,
+233,Shri  Raghuvir Singh  Meena,21,3,1,Rajasthan,INC,
+234,Shri  Harish  Choudhary,23,1,1,Rajasthan,INC,
+235,Shri  Badri Ram  Jakhar,24,0,1,Rajasthan,INC,
+236,Shri  Khiladi Lal  Bairwa,23,1,1,Rajasthan,INC,
+237,Shri  Ratan  Singh,24,0,1,Rajasthan,INC,
+238,Shri  Raja Ram  Pal,17,7,1,Uttar Pradesh,INC,
+239,Shri  Bharat Ram  Meghwal,24,0,1,Rajasthan,INC,
+240,Shri  Zafar Ali  Naqvi,20,4,1,Uttar Pradesh,INC,
+243,Shri  Mohinder Singh  Kaypee,24,0,1,Punjab,INC,
+244,Shri  Partap Singh  Bajwa,22,2,1,Punjab,INC,
+245,Adv.  P. T.  Thomas,24,0,1,Kerala,INC,
+246,Shri  M. I.  Shanavas,22,2,1,Kerala,INC,Wayanad
+247,Shri  Anto  Antony,20,4,1,Kerala,INC,
+248,Shri  N.  Peethambarakurup,23,1,1,Kerala,INC,
+249,Shri  Om Prakash  Yadav,20,4,1,Bihar,IND,
+250,Shri    Sivakumar @  Ritheesh,10,14,1,Tamil Nadu,DMK,
+251,Shri  Sanjay Dina  Patil,22,2,1,Maharashtra,NCP,
+252,Shri  Narayan Singh  Amlabe,23,1,1,Madhya Pradesh,INC,
+253,Shri  Jose K.  Mani,19,5,1,Kerala,KCM,
+254,Shri  Kameshwar  Baitha,22,2,1,Jharkhand,JMM,
+255,Shri  N. Cheluvaraya Swamy,16,8,1,Karnataka,BJP,
+256,Shri  Thol Thirumaavalavan,21,3,1,Tamil Nadu,VCK,
+257,Shri  Prem Das  Rai,22,2,1,Sikkim,SDF,
+258,Shri  C. M.  Chang,21,3,1,Nagaland,NPF,
+259,Shri   Baliram  Jadhav,24,0,1,Maharashtra,BVA,
+260,Shri  Jagada Nand  Singh,22,2,1,Bihar,RJD,
+261,Shri  Uma Shanaker  Singh,20,4,1,Bihar,RJD,
+262,Smt.  J. Helen Davidson,23,1,0,Tamil Nadu,DMK,
+263,Shri  S. R.  Jeyadurai,13,11,1,Tamil Nadu,DMK,
+264,Shri  Uday Pratap  Singh,22,2,1,Madhya Pradesh,INC,
+265,Shri  Premchand  Guddu,20,4,1,Madhya Pradesh,INC,
+266,Shri  Marotrao  Sainuji   Kowase,24,0,1,Maharashtra,INC,
+267,Shri   Suresh  Kashinath   Taware,23,1,1,Maharashtra,INC,
+268,Shri  Jaywant  Gangaram   Awale,22,2,1,Maharashtra,INC,
+269,Dr.  Nilesh N.  Rane,13,11,1,Maharashtra,INC,
+270,Shri  Thangso  Baite,24,0,1,Manipur,INC,
+271,Shri  Pradeep  Majhi,14,10,1,Orissa,INC,
+272,Shri  Amarnath  Pradhan,21,3,1,Orissa,INC,
+273,Shri  Hemanand  Biswal,20,4,1,Orissa,INC,
+274,Shri  Sanjay  Bhoi,15,9,1,Orissa,INC,
+275,Shri  C. L.  Ruala,23,1,1,Mizoram,INC,
+276,Shri  Mulayam Singh  Yadav,18,6,1,Uttar Pradesh,SP,
+277,Shri  H.D.  Devegowda,21,3,1,Karnataka,JDS,
+278,Kunwar  Rewati Raman  Singh,24,0,1,Uttar Pradesh,SP,
+279,Dr.    Bali Ram,23,1,1,Uttar Pradesh,BSP,
+280,Shri  Gurudas  Das Gupta,20,4,1,West Bengal,CPI,
+283,Shri  Shailendra  Kumar,24,0,1,Uttar Pradesh,SP,
+284,Shri  Bhisma  Shankar Alias Kushal Tiwari,23,1,1,Uttar Pradesh,BSP,
+285,Dr.  M.  Thambidurai,24,0,1,Tamil Nadu,AIADMK,
+286,Shri  Akhilesh  Yadav,14,10,1,Uttar Pradesh,SP,
+287,Shri  Ashok Kumar  Rawat,23,1,1,Uttar Pradesh,BSP,
+288,Dr.  Shafiqur Rahman  Barq,23,1,1,Uttar Pradesh,BSP,
+289,Shri  Baju Ban  Riyan,19,5,1,Tripura,CPIM,
+290,Shri  S.  Semmalai,24,0,1,Tamil Nadu,AIADMK,
+291,Shri  Kalyan  Singh,2,22,1,Uttar Pradesh,IND,
+292,Shri  Brij Bhushan Sharan  Singh,23,1,1,Uttar Pradesh,SP,
+293,Shri  Tufani  Saroj,22,2,1,Uttar Pradesh,SP,
+294,Shri  Jagdish Singh  Rana,21,3,1,Uttar Pradesh,BSP,Saharanpur
+295,Shri  Vijay Bahadur  Singh,22,2,1,Uttar Pradesh,BSP,
+296,Dr.  Ram Chandra  Dome,20,4,1,West Bengal,CPIM,
+297,Shri  Khagen  Das,18,6,1,Tripura,CPIM,
+298,Shri  O. S.  Manian,20,4,1,Tamil Nadu,AIADMK,
+299,Shri  R.K. Singh  Patel,22,2,1,Uttar Pradesh,SP,
+300,Smt.  Sushila  Saroj,23,1,0,Uttar Pradesh,SP,
+301,Smt.  Seema  Upadhyay,20,4,0,Uttar Pradesh,BSP,
+302,Smt. Tabassum  Hasan,5,19,0,Uttar Pradesh,BSP,
+303,Shri  Prabodh  Panda,23,1,1,West Bengal,CPI,
+304,Shri  Bansagopal  Chowdhury,18,6,1,West Bengal,CPIM,
+305,Shri  P.  Venugopal,24,0,1,Tamil Nadu,AIADMK,
+306,Shri  C.  Rajendran,24,0,1,Haryana,HJC,
+306,Shri  C.  Rajendran,24,0,1,Tamil Nadu,AIADMK,
+309,Shri  S.K. Nurul  Islam,12,12,1,West Bengal,AITC,
+310,Shri    Ramkishun,19,5,1,Uttar Pradesh,SP,
+311,Shri  Rakesh  Sachan,22,2,1,Uttar Pradesh,SP,
+312,Smt.  Raj Kumari  Chauhan,22,2,0,Uttar Pradesh,BSP,
+313,Smt.  Kaisar  Jahan,15,9,0,Uttar Pradesh,BSP,
+314,Shri  P.R.  Natarajan,24,0,1,Tamil Nadu,CPIM,
+315,Adv.  A.  Sampath,19,5,1,Kerala,CPIM,
+316,Shri  Manohar  Tirkey,14,10,1,West Bengal,RSP,
+317,Shri  M.  Anandan,24,0,1,Tamil Nadu,AIADMK,
+318,Shri  Dinesh  Trivedi,4,20,1,West Bengal,AITC,
+319,Shri  Gobinda Chandra  Naskar,23,1,1,West Bengal,AITC,
+320,Shri  Premdas  Katheria,23,1,1,Uttar Pradesh,SP,
+321,Shri  Dharmendra  Yadav,17,7,1,Uttar Pradesh,SP,
+322,Shri  Neeraj  Shekhar,23,1,1,Uttar Pradesh,SP,
+323,Shri    Gorakhnath  Pandey,20,4,1,Uttar Pradesh,BSP,
+324,Shri  Dhananjay  Singh,12,12,1,Uttar Pradesh,BSP,
+325,Smt.  Susmita  Bauri,23,1,0,West Bengal,CPIM,
+326,Dr.  Anup Kumar  Saha,20,4,1,West Bengal,CPIM,
+327,Shri  Pulin Bihari  Baske,19,5,1,West Bengal,CPIM,
+328,Shri  K.  Sugumar,23,1,1,Tamil Nadu,AIADMK,
+329,Shri  Ambica  Banerjee,24,0,1,West Bengal,AITC,
+330,Shri    Suvendu   Adhikari,5,19,1,West Bengal,AITC,
+331,Smt.  Usha  Verma,14,10,0,Uttar Pradesh,SP,
+332,Shri  Bal Kumar  Patel,13,11,1,Uttar Pradesh,SP,
+333,Shri  Rakesh  Pandey,23,1,1,Uttar Pradesh,BSP,
+334,Shri  Gorakh Prasad  Jaiswal,20,4,1,Uttar Pradesh,BSP,
+335,Sk.   Saidul  Haque,23,1,1,West Bengal,CPIM,
+336,Shri  Mahendra Kumar  Roy,22,2,1,West Bengal,CPIM,
+337,Shri  C.  Sivasami,17,7,1,Tamil Nadu,AIADMK,
+338,Smt.  Satabdi  Roy,18,6,0,West Bengal,AITC,
+339,Shri  Tapas  Paul,16,8,1,West Bengal,AITC,
+340,Dr.  Sucharu Ranjan  Haldar,24,0,1,West Bengal,AITC,
+341,Shri  Pakauri  Lal,23,1,1,Uttar Pradesh,SP,
+342,Shri  Ghanshyam  Anuragi,24,0,1,Uttar Pradesh,SP,
+343,Shri  Kamlesh  Balmiki,24,0,1,Uttar Pradesh,SP,
+344,Shri  Arvind Kumar  Chaudhary,24,0,1,Uttar Pradesh,BSP,
+345,Shri  Deoraj Singh  Patel,24,0,1,Madhya Pradesh,BSP,
+346,Shri  Ramashankar  Rajbhar,23,1,1,Uttar Pradesh,BSP,
+347,Shri  P. K.  Biju,21,3,1,Kerala,CPIM,
+348,Shri  M. B.  Rajesh,24,0,1,Kerala,CPIM,
+349,Shri  P.  Lingam,23,1,1,Tamil Nadu,CPI,
+350,Shri  P.  Kumar,24,0,1,Tamil Nadu,AIADMK,
+351,Dr.  Padamsinha  Bajirao  Patil,9,15,1,Maharashtra,NCP,
+352,Dr.  Ratna  De (Nag),23,1,0,West Bengal,AITC,
+353,Shri  Kabir  Suman,3,21,1,West Bengal,AITC,
+354,Shri    Mithlesh Kumar,22,2,1,Uttar Pradesh,SP,
+355,Shri  Yashvir  Singh,21,3,1,Uttar Pradesh,SP,
+356,Shri  Radhey Mohan  Singh,21,3,1,Uttar Pradesh,SP,
+357,Shri  Kapil Muni  Karwariya,23,1,1,Uttar Pradesh,BSP,
+358,Shri  Surendra Singh  Nagar,21,3,1,Uttar Pradesh,BSP,
+359,Shri  Kadir  Rana,16,8,1,Uttar Pradesh,BSP,Muzaffarnagar
+360,Shri  Bibhu Prasad  Tarai,13,11,1,Orissa,CPI,Jagatsinghpur
+361,Shri  Sakti  Mohan   Malik,13,11,1,West Bengal,CPIM,Arambagh
+362,Shri  Prasanta Kumar  Majumdar,20,4,1,West Bengal,RSP,Balurghat
+364,Dr.  Tarun  Mondal,18,6,1,West Bengal,SUCI,Jaynagar
+365,Shri  Basudeb  Acharia,23,1,1,West Bengal,CPIM,Bankura
+366,Shri  Sharad  Yadav,24,0,1,Bihar,JDU,Madhepura
+367,Shri  Arjun Charan  Sethi,21,3,1,Orissa,BJD,Bhadrak
+368,Shri  Anant Gangaram  Geete,20,4,1,Maharashtra,SS,Raigad
+369,Shri  Ram Sundar  Das,24,0,1,Bihar,JDU,Hajipur
+370,Shri  Bhartruhari  Mahtab,23,1,1,Orissa,BJD,Cuttack
+371,Shri  P.  Karunakaran,18,6,1,Kerala,CPIM,Kasaragod
+372,Shri  Chandrakant  Khaire,15,9,1,Maharashtra,SS,
+373,Shri  Anandrao  Adsul,21,3,1,Maharashtra,SS,
+374,Shri  Rajiv Ranjan  Singh  @ Lalan Singh,22,2,1,Bihar,JDU,
+375,Shri  K. Chandrasekhar  Rao,6,18,1,Andhra Pradesh,TRS,Mahbubnagar
+376,Dr.  Rattan Singh  Ajnala,6,18,1,Punjab,SAD,
+377,Shri  Prasanna  Kumar Patasani,15,9,1,Orissa,BJD,
+378,Smt.  Bhavana  Gawali,6,18,0,Maharashtra,SS,
+379,Shri  Dinesh Chandra  Yadav,19,5,1,Bihar,JDU,
+380,Shri   Mangani Lal  Mandal,24,0,1,Bihar,JDU,
+381,Shri  Inder Singh  Namdhari,21,3,1,Bihar,IND,
+381,Shri  Inder Singh  Namdhari,21,3,1,Jharkhand,IND,
+382,Smt.  Jaya Prada  Nahata,5,19,0,UP,SP,Rampur
+383,Shri  Tathagata  Satpathy,16,8,1,Orissa,BJD,
+384,Shri  Shivaji  Adhalrao Patil,7,17,1,Maharashtra,SS,
+385,Dr.  Ranjan Prasad  Yadav,23,1,1,Bihar,JDU,
+386,Capt.(Retd.)  Jainarayan Prasad  Nishad,22,2,1,Bihar,JDU,
+387,Dr.  Monazir  Hassan,24,0,1,Bihar,JDU,
+388,Shri  Nama Nageswara  Rao,22,2,1,Andhra Pradesh,TDP,Khammam
+389,Smt.  Harsimrat Kaur  Badal,12,12,0,Punjab,SAD,Bathinda
+390,Smt.  Paramjit Kaur  Gulshan,6,18,0,Punjab,SAD,Faridkot
+391,Shri  Mohan  Jena,13,11,1,Orissa,BJD,Jajpur
+392,Shri  Anand Prakash  Paranjpe,17,7,1,Maharashtra,SS,Kalyan
+393,Shri  Jagdish  Sharma,18,6,1,Bigar,JDU,Jahanabad
+394,Shri  Sushil Kumar  Singh,19,5,1,Bihar,JDU,Aurangabad
+396,Shri  Narahari  Mahato,22,2,1,West Bengal,AIFB,Purulia
+397,Shri  Ramesh  Rathod,13,11,1,Andhra Pradesh,TDP,Adilabad
+398,Ms.  M. Vijaya  Shanthi,7,17,0,Andhra Pradesh,TRS,Medak
+399,Shri  Pinaki  Misra,17,7,1,Andhra Pradesh,BJD,Puri
+400,Shri  Baijayant  Panda,22,2,1,Orissa,BJD,Kendrapara
+402,Shri  Vishwa Mohan  Kumar,19,5,1,Bihar,JDU,Supaul
+403,Shri  Baidyanath Prasad  Mahto,24,0,1,Bihar,JDU,Valmiki Nagar
+404,Shri  Angadi Suresh  Channabasappa,24,0,1,Karnataka,BJP,Belgaum
+405,Shri  Ramen  Deka,24,0,1,Assam,BJP,Mangaldoi
+406,Smt.    Rama Devi,24,0,0,Bihar,BJP,Sheohar
+407,Shri  Nripendra Nath  Roy,20,4,1,West Bengal,AIFB,Cooch Behar
+408,Shri  K. Narayana  Rao,20,4,1,Andhra Pradesh,TDP,Machilipatnam
+409,Shri  Jayaram  Pangi,15,9,1,Orissa,BJD,Koraput
+410,Shri  Rudramadhab  Ray,16,8,1,Orissa,BJD,Kandhamal
+411,Shri  A.  Ganeshamurthi,18,6,1,Tamil Nadu,MDMK,Erode
+412,Shri   Prataprao  Ganpatrao Jadhav,12,12,1,Maharashtra,SS,Buldhana
+413,Shri  Arjun  Roy,23,1,1,Bihar,JDU,Sitamarhi
+414,Smt.  Aswamedh  Devi,23,1,0,Bihar,JDU,Ujiarpur
+415,Shri  P. C.  Mohan,18,6,1,Karnataka,BJP,Bangalore Central
+416,Shri  Jeetendra Singh  Bundela,24,0,1,Madhya Pradesh,BJP,Khajuraho
+417,Shri  Hari  Manjhi,24,0,1,Bihar,BJP,Gaya
+418,Shri  Modugula Venugopala  Reddy,23,1,1,Andhra Pradesh,TDP,Narasaraopet
+419,Shri  Naramalli  Sivaprasad,17,7,1,Andhra Pradesh,TDP,Chittoor
+420,Dr.  Kirodi  Lal  Meena,22,2,1,Rajasthan,IND,Dausa
+421,Shri  Nityananda  Pradhan,15,9,1,Orissa,BJD,Aska
+422,Shri  Subhash Bapurao  Wankhede,12,12,1,Maharashtra,SS,Hingoli
+423,Shri  Mahabali  Singh,22,2,1,Bihar,JDU,Karakat
+424,Shri  Purnmasi  Ram,23,1,1,Bihar,JDU,Gopalgunj
+425,Smt.  Darshana  Jardosh,19,5,0,Gujarat,BJP,Surat
+426,Kum.  Saroj  Pandey,22,2,0,Chattisgarh,BJP,Durg
+427,Shri  Yashbant N.S.  Laguri,19,5,1,Orissa,BJD,Keonjhar
+428,Shri  Kalikesh N. Singh  Deo,4,20,1,Orissa,BJD,Bolangir
+429,Shri  Kristappa  Nimmala,21,3,1,Andhra Pradesh,TDP,Hindupur
+430,Shri  Y.S.Jagan Mohan  Reddy,3,21,1,Andhra Pradesh,YSRCP,Kadapa
+431,Shri  Gajanan D.  Babar,18,6,1,Maharashtra,SS,Maval
+432,Adv.   Ganeshrao  Nagorao Dudhgaonkar,15,9,1,Maharashtra,SS,Parbhani
+433,Smt.  Meena  Singh,23,1,0,Bihar,JDU,Arrah
+434,Shri  Bhudeo  Choudhary,16,8,1,Bihar,JDU,Jamui
+435,Shri   Bhausaheb  Rajaram   Wakchaure,16,8,1,Maharashtra,SS,Shirdi
+436,Shri  Kamlesh  Paswan,21,3,1,Uttar Pradesh,BJP,Bansgaon
+437,Prof.(Dr.)  Ram Shankar  Katheria,21,3,1,Uttar Pradesh,BJP,Agra
+438,Shri  Rajendra  Agarwal,24,0,1,Uttar Pradesh,BJP,Meerut
+439,Shri    Varun  Gandhi,22,2,1,Uttar Pradesh,BJP,Pilibhit
+440,Shri   Raju Shetti,16,8,1,Maharashtra,Swabhimani Paksha,Hatkanangle
+441,Shri  Sidhant  Mohapatra,9,15,1,Orissa,BJD,
+442,Shri  Laxman  Tudu,15,9,1,Orissa,BJD,Maruybhanj
+444,Shri  Kaushalendra  Kumar,24,0,1,Bihar,JDU,Nalanda
+445,Shri  Maheshwar  Hazari,24,0,1,Bihar,JDU,Samastipur
+446,Shri  Sher Singh  Ghubaya,9,15,1,Punjab,SAD,Ferozpur
+447,Shri  Joseph  Toppo,21,3,1,Assam,AGP,Tezpur
+448,Shri  Virender  Kashyap,20,4,1,Himachal Pradesh,BJP,Shimla
+449,Shri  Shivarama  Gouda,20,4,1,Karnataka,BJP,Koppal
+450,Shri  Udasi Shivkumar  Chanabasappa,24,0,1,Karnataka,BJP,Haveri
+451,Dr.  Rajan  Sushant,22,2,1,Himachal Pradesh,BJP,Kangra
+452,Shri  Ramesh  Vishwanath   Katti,21,3,1,Karnataka,BJP,Chikkodi
+453,Shri  S.  Pakkirappa,8,16,1,Karnataka,BJP,Raichur
+454,Dr.  Murli Manohar  Joshi,18,6,1,Uttar Pradesh,BJP,Varanasi
+455,Shri  Rajnath  Singh,20,4,1,Uttar Pradesh,BJP,Ghaziabad
+456,Shri   Gopinathrao  Pandurang   Munde,15,9,1,Maharashtra,BJP,Beed
+460,Shri  Shatrughan  Sinha,20,4,1,Bihar,BJP,Patna Sahib
+461,Shri  Syed Shahnawaz  Hussain,23,1,1,Bihar,BJP,Bhagalpur
+462,Shri  Hukamdeo Narayan  Yadav,24,0,1,Bihar,BJP,Madhubani
+463,Shri  Yashwant  Sinha,23,1,1,Jharkhand,BJP,Hazaribagh
+464,Shri  Ramesh  Bais,24,0,1,Chattisgarh,BJP,Raipur
+465,Shri    Ananth Kumar,24,0,1,Karnataka,BJP,Bangalore South
+466,Shri  Jaswant  Singh,24,0,1,West Bengal,BJP,Darjeeling
+467,Smt.  Maneka  Gandhi,16,8,0,Uttar Pradesh,BJP,Aonla
+468,Shri  Kabindra  Purkayastha,24,0,1,Assam,BJP,Silchar
+469,Shri  Dilip Singh  Judev,17,7,1,Chattisgarh,BJP,Bilaspur
+470,Smt.  Bijoya  Chakravarty,24,0,0,Assam,BJP,Gauhati
+471,Shri  Harin  Pathak,23,1,1,Gujarat,BJP,Ahmedabad East
+473,Shri  Kailash  Joshi,21,3,1,Madhya Pradesh,BJP,Bhopal
+474,Smt.  Sumitra  Mahajan,22,2,0,Madhya Pradesh,BJP,Indore
+475,Shri  Yogi  Adityanath,18,6,1,Uttar Pradesh,BJP,Gorakhpur
+476,Shri  Rajendrasinh  Rana,21,3,1,Gujarat,BJP,Bhavnagar
+477,Shri  Narendra Singh  Tomar,19,5,1,Madhya Pradesh,BJP,Morena
+478,Smt.  Yashodhara Raje  Scindia,23,1,0,Madhya Pradesh,BJP,Gwalior
+478,Smt.  Yashodhara Raje  Scindia,23,1,1,Karnataka,BJP,
+479,Shri  Vishnu Deo  Sai,22,2,1,Chattisgarh,BJP,
+480,Shri  Radha Mohan  Singh,21,3,1,Bihar,BJP,
+481,Shri  Shripad Yesso  Naik,22,2,1,Goa,BJP,
+482,Shri  Nikhil Kumar  Choudhary,23,1,1,Bihar,BJP,
+483,Shri  Dilip Kumar Mansukhlal  Gandhi,19,5,1,Maharashtra,BJP,
+484,Shri  Anant Kumar  Hegde,22,2,1,Karnataka,BJP,
+485,Shri  Ramakant  Yadav,19,5,1,Uttar Pradesh,BJP,
+486,Shri  Ram Singh  Kaswan,23,1,1,Rajasthan,BJP,
+487,Shri  Mansukhbhai Dhanjibhai  Vasava,21,3,1,Gujarat,BJP,
+488,Shri  G.S.  Basavaraj,21,3,1,Karnataka,BJP,
+489,Shri  D.B. Chandre  Gowda,10,14,1,Karnataka,BJP,
+490,Shri  Lalji  Tandon,19,5,1,,,
+490,Shri  Lalji  Tandon,19,5,1,Uttar Pradesh,BJP,
+491,Shri  Ashok  Argal,24,0,1,Madhya Pradesh,BJP,
+492,Shri    Virendra Kumar,24,0,1,Madhya Pradesh,BJP,
+493,Shri  Ganesh  Singh,23,1,1,Madhya Pradesh,BJP,
+494,Shri  Rakesh  Singh,22,2,1,Madhya Pradesh,BJP,
+495,Shri  Anurag Singh  Thakur,18,6,1,Himachal Pradesh,BJP,
+496,Shri  Raosaheb  Dadarao  Danve,12,12,1,Maharashtra,BJP,
+497,Shri  Rajen  Gohain,21,3,1,Assam,BJP,
+498,Shri  Hansraj Gangaram  Ahir,18,6,1,Maharashtra,BJP,
+499,Shri  Sohan  Potai,19,5,1,Chattisgarh,BJP,
+500,Shri  Ramsinhbhai Patalbhai  Rathwa,18,6,1,Gujarat,BJP,
+501,Shri  Ramesh Chandappa  Jigajinagi,22,2,1,Karnataka,BJP,
+502,Shri  Ravindra Kumar  Pandey,24,0,1,Jharkhand,BJP,
+503,Shri  Kirti  Azad,24,0,1,Bihar,BJP,
+504,Shri  Prahlad  Joshi,23,1,1,Karnataka,BJP,
+505,Shri  Sanjay  Dhotre,20,4,1,Maharashtra,BJP,
+506,Shri  P.C.  Gaddigoudar,20,4,1,Karnataka,BJP,
+507,Shri  Navjot Singh  Sidhu,5,19,1,Punjab,BJP,
+508,Shri  Harischandra Deoram  Chavan,22,2,1,Maharashtra,BJP,
+509,Shri  Haribhau  Jawale,15,9,1,Maharashtra,BJP,
+510,Shri   G.M.  Siddeswara,17,7,1,Karnataka,BJP,
+511,Shri  Dushyant  Singh,22,2,1,Rajasthan,BJP,
+512,Shri  Bishnu Pada  Ray,23,1,1,Andaman and Nicobar Islands,BJP,
+513,Shri  Uday  Singh,22,2,1,Bihar,BJP,
+514,Shri  Govind Prasad  Mishra,24,0,1,Madhya Pradesh,BJP,
+515,Shri  Dinubhai  Boghabhal   Solanki,2,22,1,Gujarat,BJP,
+516,Shri  Chandulal Sahu  Chandu Bhaiya,21,3,1,Chattisgarh,BJP,
+517,Shri  Bhupendra  Singh,19,5,1,Madhya Pradesh,BJP,
+518,Shri  Sudarshan  Bhagat,24,0,1,Jharkhand,BJP,
+519,Dr.  Sanjay  Jaiswal,21,3,1,Bihar,BJP,
+520,Shri  Prabhatsinh  Pratapsinh Chauhan,24,0,1,Gujarat,BJP,
+521,Shri  Pashupati Nath  Singh,23,1,1,Jharkhand,BJP,
+523,Shri  Devidhan  Besra,19,5,1,Jharkhand,BJP,
+524,Dr.  Bhola  Singh,22,2,1,Bihar,BJP,
+525,Shri  Devji M.  Patel,22,2,1,Rajasthan,BJP,
+526,Shri  C. R.  Patil,17,7,1,Gujarat,BJP,
+527,Shri  Balkrishna Khanderao  Shukla,20,4,1,Gujarat,BJP,
+528,Shri  B. Y.  Raghavendra,17,7,1,Karnataka,BJP,
+529,Shri  Arjun Ram  Meghwal,24,0,1,Rajasthan,BJP,
+530,Shri  A.T. Nana  Patil,14,10,1,Maharashtra,BJP,
+531,Shri  Shivraj  Bhaiya,24,0,1,Madhya Pradesh,BJP,
+532,Shri  Sonawane  Pratap Narayanrao,17,7,1,Maharashtra,BJP,
+533,Shri  Pradeep Kumar  Singh,23,1,1,Bihar,BJP,
+534,Shri  Makhansingh  Solanki,24,0,1,Madhya Pradesh,BJP,Khargone
+535,Shri  Chauhan  Mahendrasinh,24,0,1,Gujarat,BJP,Sabarkantha
+536,Shri  Madhusudan  Yadav,15,9,1,Chattisgarh,BJP,Rajnandgaon
+537,Shri  Lalubhai  B.  Patel,15,9,1,Daman and Diu,BJP,Daman and Diu
+538,Dr.  Kiritbhai  Premajibhai    Solanki,23,1,1,Gujarat,BJP,Ahmedabad West
+539,Shri  K. D.  Deshmukh,19,5,1,Madhya Pradesh,BJP,Balaghat
+540,Shri  Janardhana  Swamy,19,5,1,Karnataka,BJP,Chitradurga
+541,Smt.  Kamla Devi  Patle,21,3,0,Chattisgarh,BJP,Janjgir-champa
+542,Smt.  Jyoti  Dhurve,20,4,0,Madhya Pradesh,BJP,Betul
+543,Ms.  J.  Shantha,8,16,0,Karnataka,BJP,Bellary
+544,Smt.  Jayshreeben  Kanubhai    Patel,23,1,0,Gujarat,BJP,Mahesana
+545,Shri  Nishikant  Dubey,24,0,1,Jharkhand,BJP,Godda
+546,Shri  Natubhai Gomanbhai  Patel,14,10,1,Dadra and Nagar Haveli,BJP,Dadra and Nagar Haveli
+547,Shri    Naranbhai   Kachhadia,24,0,1,Gujarat,BJP,Amreli
+548,Shri  Nalin Kumar  Kateel,23,1,1,Karnataka,BJP,Dakshina Kannada
+549,Shri  Murarilal  Singh,16,8,1,Chattisgarh,BJP,Sarguja
+550,Smt.  Jat Poonamben  Veljibhai,24,0,0,Gujarat,BJP,Kachchh

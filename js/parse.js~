@@ -1,10 +1,14 @@
 $(function() {
     $("div#tt-one").next().append( $('div#tt-two') );
     $("#reset-graph").on("click", function(e) {
-        alert("reset please!");
+        svg.selectAll("circle")
+            .style("opacity", "1")
+            .attr("r", "4")
+            .style("stroke", 'black')
+			.style("stroke-width", 5);
     });
     $("#change-session").on("change", function(e) {
-        //console.log( $("#change-session").val() );
+        $("svg").empty();
         loadSVG($("#change-session").val());
     });
 });
@@ -140,7 +144,7 @@ function loadSVG(session) {
         var circles = d3.selectAll("svg circle");
         var count = 0;
         var dist = 0,
-            distLess = 0,
+            distSecond = 0,
             distThird = 0;
         circles.filter(function(d) {
             // to display MP names in mp-info div
@@ -165,7 +169,6 @@ function loadSVG(session) {
                     d.mpname.indexOf("Shri") != -1 ? addContent(d, "Shri", 3) : d.mpname.indexOf("Smt.") != -1 ? addContent(d, "Smt.", 3) : addContent(d, "", 3);
                 }
                 //partyTip
-                //$("#tt-two").html('Party: <strong>' + d.party + '</strong> <ul> <li> Attendance >= 75%: ' + dist + '/' + count + ' MPs </li> <li> 65% <= Attendance < 75% ' + distLess + '/' + count + '</li> <li> 65% <= Attendance < 75% ' + distThird + '/' + count + '</li> </ul>' );
             }
             return d.party != options;
         })
@@ -174,8 +177,8 @@ function loadSVG(session) {
         
         // adds content in the end
         $(".table-one").append("<tr> <th> First class (" + dist + "/" + count + ")</th> </tr>");
-        $(".table-two").append("<tr> <th> Second class (" + distSecond + "/" + count + ")</th> </tr>");
-        $(".table-three").append("<tr> <th> Third class (" + distThird + "/" + count + ")</th> </tr>");
+        $(".table-two").append("<tr class='warning'> <th> Second class (" + distSecond + "/" + count + ")</th> </tr>");
+        $(".table-three").append("<tr class='error'> <th> Third class (" + distThird + "/" + count + ")</th> </tr>");
         $(".table-one").append(first_class_content);
         $(".table-two").append(second_class_content);
         $(".table-three").append(third_class_content);
@@ -184,11 +187,11 @@ function loadSVG(session) {
       // adds MP names to first, second, third classes
       function addContent(d, to_be_replaced, grade) {
         if(grade === 1) {
-            first_class_content += '<tr><td>' + d.mpname.replace(to_be_replaced, "") + '</td></tr>';
+            first_class_content += '<tr class="success"><td>' + d.mpname.replace(to_be_replaced, "") + '</td></tr>';
         } else if (grade === 2) {
-            second_class_content += '<tr><td>' + d.mpname.replace(to_be_replaced, "") + '</td></tr>';
+            second_class_content += '<tr class="warning"><td>' + d.mpname.replace(to_be_replaced, "") + '</td></tr>';
         } else if (grade === 3) {
-            third_class_content += '<tr><td>' + d.mpname.replace(to_be_replaced, "") + '</td></tr>';
+            third_class_content += '<tr class="error"><td>' + d.mpname.replace(to_be_replaced, "") + '</td></tr>';
         }
       }
 
