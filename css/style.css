@@ -28,6 +28,6 @@ body {
     margin-top: 40px;
 }
 
-.change-gender {
+.change-gender, .change-state {
     display: none;
 }

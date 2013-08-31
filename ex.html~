@@ -12,7 +12,7 @@
                 <h1> 15th Lok Sabha </h1>
             </div>
             <select id="change-session">
-                <option value="0">Select</option>
+                <option value="0">Select Session</option>
                 <option value="1">Session 1</option> <option value="2">Session 2</option>
                 <option value="3">Session 3</option> <option value="4">Session 4</option>
                 <option value="5">Session 5</option> <option value="6">Session 6</option>
@@ -21,8 +21,11 @@
                 <option value="11">Session 11</option> <option value="12">Session 12</option>
             </select>
             <select class="change-gender">
-                <option value="0">Select Gender</option>
-                <option value="1">Female</option> <option value="2">Male</option>
+                <option value="10">Select Gender</option>
+                <option value="0">Female</option> <option value="1">Male</option>
+            </select>
+            <select class="change-state"> 
+                <option value="Select State"></option>
             </select>
             <div class="mp-container">
                 <div class="main-svg">

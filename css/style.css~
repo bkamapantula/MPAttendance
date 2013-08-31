@@ -28,4 +28,6 @@ body {
     margin-top: 40px;
 }
 
-
+.change-gender {
+    display: none;
+}
