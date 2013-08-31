@@ -1,14 +1,10 @@
 $(function() {
     $("div#tt-one").next().append( $('div#tt-two') );
-    $("#reset-graph").on("click", function(e) {
-        svg.selectAll("circle")
-            .style("opacity", "1")
-            .attr("r", "4")
-            .style("stroke", 'black')
-			.style("stroke-width", 5);
-    });
     $("#change-session").on("change", function(e) {
         $("svg").remove();
+        $(".change-gender").show();
+        // sets gender to 'Select Gender' when new session is loaded
+        $(".change-gender").val('10');
         loadSVG($("#change-session").val());
     });
 });
@@ -53,7 +49,7 @@ function loadSVG(session) {
 
     var partyTip = d3.select("body")
     .append("div")
-    .attr("id", "tt-two")
+    //.attr("id", "tt-two")
     .attr("class", "tooltip")
     .style("opacity", 0.5);
 
@@ -68,6 +64,7 @@ function loadSVG(session) {
             d.counter = counter;
             d.mpname = d.Name;
             d.party = d.Party;
+            d.gender = d.Gender;
         });
 
         x.domain(d3.extent(data, function(d) { return d.perc; } )).nice();
@@ -211,6 +208,35 @@ function loadSVG(session) {
           .attr("dy", ".35em")
           .style("text-anchor", "end")
           .text(function(d) { return d; });
+
+    // changes properties of nodes based on Gender
+    $(".change-gender").on("change", function(e) {
+        var gender = $(".change-gender").val();
+        console.log(gender);
+        var g = gender == 0 ? "Female" : gender == 1 ? "Male" : false;
+        var counter = svg.selectAll(".dot")
+            .filter(function(d) {
+                return d.gender == gender ? d.party : false;
+            })
+            .attr("r", 5)
+            .size();
+        svg.selectAll(".dot")
+            .filter(function(d) {
+                return d.gender != gender ? d.party : false;
+            })
+            .attr("r", 1);
+            $("#tt-one").html("Number of " + g + " MPs: " + counter);
     });
+    
+    // resets all nodes on clicking Reset button
+    $("#reset-graph").on("click", function(e) {
+        $(".change-gender").val('10');
+        svg.selectAll("circle")
+            .style("opacity", "1")
+            .attr("r", "4");
+    });
+
+    });
+
 } // end of loadSVG
 
