@@ -66,6 +66,9 @@ function loadSVG(session) {
             d.party = d.Party;
             d.gender = d.Gender;
             d.state = d.State;
+            
+            /*$(".change-state option[value='"+d.state+"']").length > 0 ? $(".change-state").append("<option>" + d.state + "</option>") : false;
+            console.log($(".change-state").val());*/
         });
         
         x.domain(d3.extent(data, function(d) { return d.perc; } )).nice();
@@ -208,7 +211,7 @@ function loadSVG(session) {
           .attr("dy", ".35em")
           .style("text-anchor", "end")
           .text(function(d) { return d; });
-
+    
     // changes properties of nodes based on Gender
     $(".change-gender").on("change", function(e) {
         var gender = $(".change-gender").val();
@@ -224,13 +227,8 @@ function loadSVG(session) {
                 return d.gender != gender ? d.party : false;
             })
             .attr("r", 1);
-        $("#tt-one").html("Number of " + g + " MPs: " + counter);
-        svg.selectAll(".dot")
-            .data(data, function(d) {
-                $(".change-state option[value='"+d.state+"']").length == 0 ? $(".change-state").append("<option>" + d.state + "</option>") : false; //$(".change-state").append("<option>" + d.state + "</option>")
-                console.log( $(".change-state option[value='"+d.state+"']").length );
-            });
-        $(".change-state").show();
+        $(".gender-count").html("Number of " + g + " MPs: " + counter);
+        //$(".change-state").show();
     });
     
     // resets all nodes on clicking Reset button

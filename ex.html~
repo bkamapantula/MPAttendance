@@ -25,8 +25,9 @@
                 <option value="0">Female</option> <option value="1">Male</option>
             </select>
             <select class="change-state"> 
-                <option value="Select State"></option>
+                <option value="0">Select State</option>
             </select>
+            <p class="gender-count"> </p>
             <div class="mp-container">
                 <div class="main-svg">
                     <script type="text/javascript" src="js/parse.js"> </script>
