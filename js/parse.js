@@ -1,6 +1,7 @@
 $(function() {
     $("div#tt-one").next().append( $('div#tt-two') );
     $("#change-session").on("change", function(e) {
+        $(".gender-count, #tt-one").empty();
         $("svg").remove();
         $(".change-gender").show();
         // sets gender to 'Select Gender' when new session is loaded
@@ -236,6 +237,7 @@ function loadSVG(session) {
     // resets all nodes on clicking Reset button
     $("#reset-graph").on("click", function(e) {
         $(".change-gender").val('10');
+        $(".gender-count").empty();
         svg.selectAll("circle")
             .style("opacity", "1")
             .attr("r", "4");

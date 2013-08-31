@@ -27,7 +27,8 @@
             <select class="change-state"> 
                 <option value="0">Select State</option>
             </select>
-            <p class="text-right text-info gender-count"> </p>
+            <button id="reset-graph" align="right">Reset</button>
+            <p class="text-info gender-count"> </p>
             <div class="mp-container">
                 <div class="main-svg">
                     <script type="text/javascript" src="js/parse.js"> </script>
@@ -37,12 +38,10 @@
                     <div class="second-class"> <table class="table table-two"> </table> </div>
                     <div class="third-class"> <table class="table table-three"> </table> </div>
                 </div>
-                <!--input type="text" placeholder="MP Name" style="display: none;"/-->
             </div> <!--mp-container class ends-->
             <div class="attendance-info">
                 <div id="tt-one"> </div>
             </div>
-            <button id="reset-graph">Reset</button>
             <p class="text-right"> 
                 <ul class="pull-right"> 
                 <h3>Class information</h3>

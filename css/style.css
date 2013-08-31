@@ -31,3 +31,6 @@ body {
 .change-gender, .change-state {
     display: none;
 }
+#reset-graph {
+    float: right;
+}
