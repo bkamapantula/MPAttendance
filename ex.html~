@@ -9,7 +9,8 @@
     <body>
         <div class="container">
             <div class="page-header">
-                <h1> 15th Lok Sabha </h1>
+                <a href="javascript:void(0);" class="about-modal" data-toggle="modal">About</a>
+                <h1>MAP - MPs Attending Parliament</h1>
             </div>
             <select id="change-session">
                 <option value="0">Select Session</option>
@@ -30,6 +31,10 @@
             <span class="session-info"></span>
             <button id="reset-graph">Reset</button>
             <p class="text-info gender-count"> </p>
+            <div class="alert alert-info">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>Learn more by hovering on circles (MPs) and legend (Political Parties)
+            </div>
             <div class="mp-container">
                 <div class="main-svg">
                     <script type="text/javascript" src="js/parse.js"> </script>
@@ -40,7 +45,7 @@
                     <div class="third-class"> <table class="table table-three"> </table> </div>
                 </div>
                 <p class="text-right">
-                    <ul class="pull-right  class-info"> 
+                    <ul class="pull-right class-info"> 
                     <h3>Class information</h3>
                         <li>First class - 75% and above attendance</li>
                         <li>Second class - 65%-75% attendance</li>
@@ -49,6 +54,32 @@
                 </p>
             </div> <!--mp-container class ends-->
             <div id="tt-one"> </div>
+            <div class="modal hide fade" id="aboutModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3>MAP - Members Attending Parliament </h3>
+                </div>
+                <div class="modal-body">
+                    MAP tracks the attendance of Indian MPs in Lok Sabha (lower house).
+                    <p>
+                       Currently data for 15th Lok Sabha is presented. Data for 12 sessions has been included.
+                       <h3>Idea</h3>
+                       Conceptualized this idea, thanks to a <a href="https://twitter.com/binaryfootprint/status/314445030242787328">Tweet</a>.
+                       <h3> Data </h3>
+                       Data has been accessed from <a href="http://164.100.47.132/members_attendance/mainscreen.aspx"> Lok Sabha website </a>.
+                       Data is <a href="data/">available</a> in CSV format. Data can <i>potentially</i> be corrupted at few places. Please report to <a href="twitter.com/bkamapantula">@bkamapantula</a>.
+                       <h3> Code </h3>
+                       Code for parsing the data out of the website will be made available soon.
+                       Code for MAP implementation is available at Github. If you're interested
+                       <h3>To-do</h3>
+                       <ul>
+                           <li> State-wise MP attendance </li>
+                           <li> Day-wise MP attendance </li>
+                       </ul>
+                    </p>
+                </div>
+            </div>
         </div> <!--container class ends-->
+        <script type="text/javascript" src="../diseaseInt/bootstrap/js/bootstrap-modal.js"></script>
     </body>
 </html>

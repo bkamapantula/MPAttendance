@@ -3,10 +3,16 @@ $(function() {
     $("#change-session").on("change", function(e) {
         $(".gender-count, #tt-one").empty();
         $("svg").remove();
-        $("#reset-graph, .change-gender, .class-info").show();
+        $("#reset-graph, .change-gender, .class-info, .alert-info").show();
         // sets gender to 'Select Gender' when new session is loaded
         $(".change-gender").val('10');
         loadSVG($("#change-session").val());
+    });
+    $(".alert-info").on("click", function(e) {
+        $(this).remove();
+    });
+    $(".about-modal").on("click", function() {
+        $("#aboutModal").modal('show');
     });
 });
 
@@ -93,7 +99,7 @@ function loadSVG(session) {
           .attr("x", width)
           .attr("y", -6)
           .style("text-anchor", "end")
-          .text("Days signed");
+          .text("Attendance %");
 
       svg.append("g")
           .attr("class", "y axis")
@@ -242,7 +248,7 @@ function loadSVG(session) {
                 return d.gender != gender ? d.party : false;
             })
             .attr("r", 0);
-        $(".gender-count").html("Number of total " + g + " MPs: " + counter);
+        //$(".gender-count").html("Number of total " + g + " MPs: " + counter);
         //$(".change-state").show();
     });
     
