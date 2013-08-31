@@ -16,7 +16,7 @@ function loadSVG(session) {
     var counter = 0;
     var margin = {top: 20, bottom: 30, left: 50, right: 80},
     width = 520, // - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    height = 475 - margin.top - margin.bottom;
 
     var x = d3.scale.linear()
                .range([0, width]);
@@ -184,6 +184,7 @@ function loadSVG(session) {
         $(".table-one").append(first_class_content);
         $(".table-two").append(second_class_content);
         $(".table-three").append(third_class_content);
+
       }
       
       // adds MP names to first, second, third classes
@@ -227,8 +228,8 @@ function loadSVG(session) {
             .filter(function(d) {
                 return d.gender != gender ? d.party : false;
             })
-            .attr("r", 1);
-        $(".gender-count").html("Number of " + g + " MPs: " + counter);
+            .attr("r", 0);
+        $(".gender-count").html("Number of total " + g + " MPs: " + counter);
         //$(".change-state").show();
     });
     
