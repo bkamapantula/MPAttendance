@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title> MAP (MPs Attending Parliament) </title>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/style.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+        <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"> </script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <a href="javascript:void(0);" class="about-modal" data-toggle="modal">About</a>
+                <a href="javascript:void(0);" class="suggestion-modal" data-toggle="modal">Suggestions</a>
+                <h1>MAP (MPs Attending Parliament)</h1>
+            </div>
+            <select id="change-session">
+                <option value="0">Select Session</option>
+                <option value="1">Session 1</option> <option value="2">Session 2</option>
+                <option value="3">Session 3</option> <option value="4">Session 4</option>
+                <option value="5">Session 5</option> <option value="6">Session 6</option>
+                <option value="7">Session 7</option> <option value="8">Session 8</option>
+                <option value="9">Session 9</option> <option value="10">Session 10</option>
+                <option value="11">Session 11</option> <option value="12">Session 12</option>
+            </select>
+            <select class="change-gender">
+                <option value="10">Select Gender</option>
+                <option value="0">Female</option> <option value="1">Male</option>
+            </select>
+            <select class="change-state"> 
+                <option value="0">Select State</option>
+            </select>
+            <span class="session-info"></span>
+            <button id="reset-graph">Reset</button>
+            <p class="text-info gender-count"> </p>
+            <div class="alert alert-info">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <strong>Learn more by hovering on circles (MPs) and legend (Political Parties)
+            </div>
+            <div class="mp-container">
+                <div class="main-svg">
+                    <script type="text/javascript" src="bootstrap/js/parse.js"> </script>
+                </div> <!-- end of main-svg class-->
+                <div class="mp-info">
+                    <div class="first-class"> <table class="table table-one table-striped"> </table> </div>
+                    <div class="second-class"> <table class="table table-two"> </table> </div>
+                    <div class="third-class"> <table class="table table-three"> </table> </div>
+                </div>
+                <p class="text-right">
+                    <ul class="pull-right class-info"> 
+                    <h3>Class information</h3>
+                        <li>First class - 75% and above attendance</li>
+                        <li>Second class - 65%-75% attendance</li>
+                        <li>Third class - below 65% attendance</li>
+                    </ul>
+                </p>
+            </div> <!--mp-container class ends-->
+            <div id="tt-one"> </div>
+            <!-- About modal -->
+            <div class="modal hide fade" id="aboutModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3>MAP (Members Attending Parliament) </h3>
+                </div>
+                <div class="modal-body">
+                    MAP tracks the attendance of Indian MPs in Lok Sabha (lower house).
+                    <p>
+                       Currently data for 15th Lok Sabha is presented. Data for 12 sessions has been included.
+                       <h3>Idea</h3>
+                       Conceptualized this idea, thanks to a <a href="https://twitter.com/binaryfootprint/status/314445030242787328">Tweet</a>.
+                       <h3> Data </h3>
+                       Data has been accessed from <a href="http://164.100.47.132/members_attendance/mainscreen.aspx"> Lok Sabha website</a>.
+                       Data is <a href="data/">available</a> in CSV format. Data can <i>potentially</i> be corrupted at few places. Please report to <a href="twitter.com/bkamapantula">@bkamapantula</a>.
+                       <h4>Data format</h4>
+                       Id, MP Name, Number of days signed, Number of days missed, Gender, State, Party, Constituency
+                       <h3> Code </h3>
+                       Code for parsing the data out of the Lok Sabha website will be made available soon.
+                       To contribute, head to <a href="https://github.com/bkamapantula/MPAttendance">Github</a>.
+                       <h3>To-do</h3>
+                       <ul>
+                           <li> State-wise MP attendance </li>
+                           <li> Day-wise MP attendance </li>
+                       </ul>
+                    </p>
+                </div> 
+            </div> <!--About modal ends-->
+            <div class="modal hide fade" id="suggestionModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3> Suggestions for MAP (Members Attending Parliament) </h3>
+                </div>
+                <div class="modal-body">
+                    <form >
+                </div>
+        </div> <!--container class ends-->
+        <script type="text/javascript" src="../diseaseInt/bootstrap/js/bootstrap-modal.js"></script>
+    </body>
+</html>
