@@ -12,7 +12,7 @@ Attendance only for current (15th) Lok Sabha is present so far. This includes da
 =============
 
 Data (CSV format) can be accessed in data folder.
-Id, MP Name, Number of days signed, Number of days missed, Party, State and Constituency
+Id, MP Name, Number of days signed, Number of days missed, Gender, Party, State and Constituency
 
 *To-do*
 ==========
