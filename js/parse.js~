@@ -3,10 +3,12 @@ $(function() {
     $("#change-session").on("change", function(e) {
         $(".gender-count, #tt-one").empty();
         $("svg").remove();
+        $("").show();
         $("#reset-graph, .change-gender, .class-info").show();
         // sets gender to 'Select Gender' when new session is loaded
         $(".change-gender").val('10');
         loadSVG($("#change-session").val());
+        $("").show();
     });
 });
 

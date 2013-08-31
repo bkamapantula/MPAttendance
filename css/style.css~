@@ -25,7 +25,7 @@
 }
 
 body {
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 .change-gender, .change-state {

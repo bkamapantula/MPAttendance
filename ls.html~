@@ -364,7 +364,7 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
         var secnd = Math.ceil( (fmpSecondClass/fmpCount) * 10);
         var third = Math.ceil( (fmpThirdClass/fmpCount) * 10);
 
-        alert(fmpDistinction + ' ' + fmpCount + ' ' + dist);
+        //alert(fmpDistinction + ' ' + fmpCount + ' ' + dist);
         for(i=0;i<dist;i++) {
             $("#fgender-1").append('<img src="glyphicons/png/glyphicons_035_woman.png"></i>');
         }
