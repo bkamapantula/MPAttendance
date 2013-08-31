@@ -10,7 +10,7 @@
         <div class="container">
             <div class="page-header">
                 <a href="javascript:void(0);" class="about-modal" data-toggle="modal">About</a>
-                <!--a href="javascript:void(0);" class="suggestion-modal" data-toggle="modal">Suggestions</a-->
+                <a href="javascript:void(0);" class="suggestion-modal" data-toggle="modal">Suggestions</a>
                 <h1>MAP (MPs Attending Parliament)</h1>
             </div>
             <select id="change-session">

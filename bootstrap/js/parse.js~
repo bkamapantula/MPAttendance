@@ -203,6 +203,7 @@ function loadSVG(session) {
         $(".table-one").append(first_class_content);
         $(".table-two").append(second_class_content);
         $(".table-three").append(third_class_content);
+
       }
       
       // adds MP names to first, second, third classes
