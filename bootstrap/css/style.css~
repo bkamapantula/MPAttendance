@@ -56,7 +56,7 @@ body {
     float: right;
     margin-left: 7px;
 }
-.party-perc-one, .party-perc-two, .party-perc-three {
+.party-perc-one, .party-perc-two, .party-perc-third {
     width: 30%;
     float: left;
     overflow: auto;

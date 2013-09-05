@@ -84,7 +84,7 @@
                 </div> 
             </div> <!--About modal ends-->
             <div class="party-perc">
-                <div class="party-perc-one"><table class="table party-perc-first"> </table></div>
+                <div class="party-perc-first"><table class="table party-perc-first"> </table></div>
                 <div class="party-perc-two"><table class="table party-perc-second"> </table></div>
                 <div class="party-perc-three"><table class="table party-perc-third"> </table></div>
             </div>

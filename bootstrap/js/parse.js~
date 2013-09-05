@@ -103,7 +103,7 @@ function loadSVG(session) {
         	arr.push(obj);
         });
 
-        console.log( arr );
+        //console.log( arr );
         var parties = new Array;
         var attendanceValues = new Array;
         $.each(arr, function(key, item) {
