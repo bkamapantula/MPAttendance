@@ -16,6 +16,9 @@ $(function() {
     $(".about-modal").on("click", function() {
         $("#aboutModal").modal('show');
     });
+    $(".parties-modal").on("click", function() {
+        $("#partiesFull").modal('show');
+    });
 });
 
 function loadSVG(session) {
@@ -88,8 +91,6 @@ function loadSVG(session) {
             d.party = d.Party;
             d.gender = d.Gender;
             d.state = d.State;
-
-			//console.log(d);
 			
 			var obj = {
 			            key: counter,
@@ -108,9 +109,9 @@ function loadSVG(session) {
                 l[arr[i].party] = {
                     key: i,
                     party: arr[i].party,
-                    a: arr[i].a,
-                    b: arr[i].b,
-                    c: arr[i].c,
+                    perca: arr[i].a,
+                    percb: arr[i].b,
+                    percc: arr[i].c,
                     counts: 1,
                     counta: arr[i].a,
                     countb: arr[i].b,
@@ -127,6 +128,9 @@ function loadSVG(session) {
                 if( arr[i].perc < 65 ) {
                     l[arr[i].party].countc++;
                 }
+                l[arr[i].party].perca = (l[arr[i].party].counta / l[arr[i].party].counts) * 100;
+                l[arr[i].party].percb = (l[arr[i].party].countb / l[arr[i].party].counts) * 100;
+                l[arr[i].party].percc = (l[arr[i].party].countc / l[arr[i].party].counts) * 100;
             }
         }
         
@@ -135,6 +139,7 @@ function loadSVG(session) {
             s += "<tr><td>" + key + "</td><td>" + l[key].counta + "</td><td>" + l[key].countb + "</td><td>" + l[key].countc + "</td><td>" + l[key].counts + "</td></tr>";
         }
         $(".party-perc-first").html(s);
+            //s += "<tr><td>" + key + "</td><td>" + l[key].counta + " ("+ l[key].perca.toFixed(1) +"%)</td><td>" + l[key].countb + " (" + l[key].percb.toFixed(1) + "%)</td><td>" + l[key].countc + " (" + l[key].percc.toFixed(1) + "%)</td><td>" + l[key].counts + "</td></tr>";
 
         x.domain(d3.extent(data, function(d) { return d.perc; } )).nice();
         y.domain(d3.extent(data, function(d) { return d.counter; } )).nice();
@@ -272,7 +277,10 @@ function loadSVG(session) {
           .attr("transform", "translate(55, 00)" )
           .attr("dy", ".35em")
           .style("text-anchor", "end")
-          .text(function(d) { return d; });
+          .text(function(d) { 
+                if(d.party != "Swabhimani Paksha") 
+                    return d; 
+          });
     
     // changes properties of nodes based on Gender
     $(".change-gender").on("change", function(e) {
