@@ -28,7 +28,7 @@ function loadSVG(session) {
     var counter = 0;
     var margin = {top: 20, bottom: 30, left: 50, right: 80},
     width = 520, // - margin.left - margin.right,
-    height = 850; // - margin.top - margin.bottom;
+    height = 520; // - margin.top - margin.bottom;
     
     var startDate = ['June 01, 2009', 'July 02, 2009', 'November 19, 2009', 'February 22, 2010', 'July 26, 2010', 'November 09, 2010', 'February 21, 2011', 'August 01, 2011', 'November 22, 2011', 'March 12, 2012', 'August 08, 2012', 'November 22, 2012'];
     var endDate = ['June 09, 2009', 'August 07, 2009', 'December 21, 2009', 'March 16, 2010', 'August 31, 2010', 'December 13, 2010', 'March 25, 2011', 'September 08, 2011', 'December 29, 2011', 'May 22, 2012', 'September 07, 2012', 'December 20, 2012'];
@@ -134,9 +134,11 @@ function loadSVG(session) {
             }
         }
         
+        //var p = l.sort(function(a, b) { return a.perca - b.perca; });
+        
         var s = "<tr> <th>Party</th> <th>First class</th> <th>Second class</th> <th>Third class</th> <th>Total</th></tr>";
         for(key in l) {
-            s += "<tr><td>" + key + "</td><td>" + l[key].counta + "</td><td>" + l[key].countb + "</td><td>" + l[key].countc + "</td><td>" + l[key].counts + "</td></tr>";
+            s += "<tr><td>" + l[key].party + "</td><td>" + l[key].counta + "</td><td>" + l[key].countb + "</td><td>" + l[key].countc + "</td><td>" + l[key].counts + "</td></tr>";
         }
         $(".party-perc-first").html(s);
             //s += "<tr><td>" + key + "</td><td>" + l[key].counta + " ("+ l[key].perca.toFixed(1) +"%)</td><td>" + l[key].countb + " (" + l[key].percb.toFixed(1) + "%)</td><td>" + l[key].countc + " (" + l[key].percc.toFixed(1) + "%)</td><td>" + l[key].counts + "</td></tr>";
@@ -192,7 +194,8 @@ function loadSVG(session) {
           .attr("class", "legend")
           .on("mouseover", toggleParties)
           .on("mouseout", retainData)
-          .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; })
+          .attr("transform", function(d, i) { return "translate(0," + i * 12 + ")"; })
+          //.attr("transform", function(d, i) { return "translate(" + -i*20 + ", 0)"; })
           .style("font-size", "10px");
           
       // on legend mouse out
@@ -265,22 +268,19 @@ function loadSVG(session) {
 
       // Legend shape
       legend.append("rect")
-          .attr("x", width + 22)
+          .attr("x", width + 32)
           .attr("width", 8)
           .attr("height", 8)
           .style("fill", color);
 
       // Legend text
       legend.append("text")
-          .attr("x", width + 24)
+          .attr("x", width + 54)
           .attr("y", 5)
           .attr("transform", "translate(55, 00)" )
           .attr("dy", ".35em")
           .style("text-anchor", "end")
-          .text(function(d) { 
-                if(d.party != "Swabhimani Paksha") 
-                    return d; 
-          });
+          .text(function(d) { return d; });
     
     // changes properties of nodes based on Gender
     $(".change-gender").on("change", function(e) {

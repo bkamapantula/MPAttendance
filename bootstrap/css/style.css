@@ -62,3 +62,6 @@ body {
     float: left;
     overflow: auto;
 }
+.container {
+    margin-bottom: 30px;
+}
