@@ -3,12 +3,17 @@ $(function() {
     
     // on selecting a session
     $("#change-session").on("change", function(e) {
-        $(".gender-count, #tt-one").empty();
-        $("svg").remove();
-        $("#reset-graph, .change-gender, .class-info").show(); //, .alert-info").show();
-        // sets gender to 'Select Gender' when new session is loaded
-        $(".change-gender").val('10');
-        loadSVG($("#change-session").val());
+        var v = $("#change-session").val();
+        if(v>0) {
+            $(".gender-count, #tt-one").empty();
+            $("svg").remove();
+            $("#reset-graph, .change-gender, .class-info, .alert-info, .attendance-header").show();
+            // sets gender to 'Select Gender' when new session is loaded
+            $(".change-gender").val('10');
+            loadSVG($("#change-session").val());
+        } else {
+            alert("Improper selection");
+        }
     });
     $(".alert-info").on("click", function(e) {
         $(this).remove();
@@ -26,7 +31,7 @@ function loadSVG(session) {
     var totalDays = 0;
     var perc = 0;
     var counter = 0;
-    var margin = {top: 20, bottom: 100, left: 20, right: 200},
+    var margin = {top: 20, bottom: 100, left: 35, right: 200},
     width = 520,
     height = 520;
     
@@ -79,7 +84,8 @@ function loadSVG(session) {
 
       var arr = new Array;
     d3.csv("data/session-"+session+".csv", function(error, data) {  
-        data.forEach(function(d) { 
+        data.forEach(function(d) {
+            //if(d.Party) {
             counter = counter + 1;
             totalDays = parseInt(d.DaysSigned, 10) + parseInt(d.DaysMissed, 10);
             perc = parseFloat(d.DaysSigned/totalDays)*100;
@@ -101,6 +107,7 @@ function loadSVG(session) {
 			            c: d.perc < 65 ? 1 : 0
         			};
         	arr.push(obj);
+        	//}
         });
 
         var l = {};
@@ -136,19 +143,22 @@ function loadSVG(session) {
         
         var partyData = new google.visualization.DataTable();
         partyData.addColumn('string', 'Party');
-        partyData.addColumn('number', 'First Class');
-        partyData.addColumn('number', 'Second Class');
-        partyData.addColumn('number', 'Third Class');
-        partyData.addColumn('number', 'Total');
+        partyData.addColumn('string', 'Number of MPs in 1st,2nd,3rd classes');
+        partyData.addColumn('number', '1st class %');
+        partyData.addColumn('number', '2nd class %');
+        partyData.addColumn('number', '3rd class %');
+        //partyData.addColumn('number', 'Total');
 
         for(key in l) {
-            partyData.addRow([ l[key].party, parseInt(l[key].counta, 10), parseInt(l[key].countb, 10), parseInt(l[key].countc, 10), parseInt(l[key].counts, 10) ]);
+            partyData.addRow([ l[key].party, parseInt(l[key].counta, 10) + ", " + parseInt(l[key].countb, 10) + ", " + parseInt(l[key].countc, 10), parseInt(l[key].perca, 10), parseInt(l[key].percb, 10), parseInt(l[key].percc, 10) ]); //, parseInt(l[key].counts, 10) ]);
         }
         var tab = new google.visualization.Table( document.getElementById('party-perc-one') );
         tab.draw(partyData, 
                         {
-                            sortColumn: 1,
-                            sortAscending: false
+                            sortColumn: 2,
+                            sortAscending: false,
+                            showRowNumber: true,
+                            width: '100%'
                         });
 
         x.domain(d3.extent(data, function(d) { return d.perc; } )).nice();
@@ -191,7 +201,6 @@ function loadSVG(session) {
           .on("mouseout", function(d) {
             d3.select(this).attr("r", 4);
             $("#tt-one").hide();
-            //d3.selectAll('dot').attr("r", 4);
           }) 
           .style("fill", function(d) { return color(d.party); });
 
@@ -253,7 +262,7 @@ function loadSVG(session) {
             return d.party != options;
         })
         .style("opacity", "0.1")
-        .attr("r", "3");
+        .attr("r", "4");
 
         // adds content in the end
         $(".table-one").append("<tr> <th> First class (" + dist + "/" + count + ")</th> </tr>");
@@ -262,6 +271,7 @@ function loadSVG(session) {
         $(".table-one").append(first_class_content);
         $(".table-two").append(second_class_content);
         $(".table-three").append(third_class_content);
+        $(".party-selected").append(", Total MPs: " + count);
       }
 
       // adds MP names to first, second, third classes
@@ -299,15 +309,13 @@ function loadSVG(session) {
             .filter(function(d) {
                 return d.gender == gender ? d.party : false;
             })
-            .attr("r", 5)
+            .attr("r", 4)
             .size();
         svg.selectAll(".dot")
             .filter(function(d) {
                 return d.gender != gender ? d.party : false;
             })
             .attr("r", 0);
-        //$(".gender-count").html("Number of total " + g + " MPs: " + counter);
-        //$(".change-state").show();
     });
     
     // resets all nodes on clicking Reset button
