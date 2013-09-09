@@ -26,9 +26,9 @@ function loadSVG(session) {
     var totalDays = 0;
     var perc = 0;
     var counter = 0;
-    var margin = {top: 20, bottom: 30, left: 50, right: 80},
-    width = 520, // - margin.left - margin.right,
-    height = 520; // - margin.top - margin.bottom;
+    var margin = {top: 20, bottom: 100, left: 20, right: 200},
+    width = 520,
+    height = 520;
     
     var startDate = ['June 01, 2009', 'July 02, 2009', 'November 19, 2009', 'February 22, 2010', 'July 26, 2010', 'November 09, 2010', 'February 21, 2011', 'August 01, 2011', 'November 22, 2011', 'March 12, 2012', 'August 08, 2012', 'November 22, 2012'];
     var endDate = ['June 09, 2009', 'August 07, 2009', 'December 21, 2009', 'March 16, 2010', 'August 31, 2010', 'December 13, 2010', 'March 25, 2011', 'September 08, 2011', 'December 29, 2011', 'May 22, 2012', 'September 07, 2012', 'December 20, 2012'];
@@ -134,14 +134,22 @@ function loadSVG(session) {
             }
         }
         
-        //var p = l.sort(function(a, b) { return a.perca - b.perca; });
-        
-        var s = "<tr> <th>Party</th> <th>First class</th> <th>Second class</th> <th>Third class</th> <th>Total</th></tr>";
+        var partyData = new google.visualization.DataTable();
+        partyData.addColumn('string', 'Party');
+        partyData.addColumn('number', 'First Class');
+        partyData.addColumn('number', 'Second Class');
+        partyData.addColumn('number', 'Third Class');
+        partyData.addColumn('number', 'Total');
+
         for(key in l) {
-            s += "<tr><td>" + l[key].party + "</td><td>" + l[key].counta + "</td><td>" + l[key].countb + "</td><td>" + l[key].countc + "</td><td>" + l[key].counts + "</td></tr>";
+            partyData.addRow([ l[key].party, parseInt(l[key].counta, 10), parseInt(l[key].countb, 10), parseInt(l[key].countc, 10), parseInt(l[key].counts, 10) ]);
         }
-        $(".party-perc-first").html(s);
-            //s += "<tr><td>" + key + "</td><td>" + l[key].counta + " ("+ l[key].perca.toFixed(1) +"%)</td><td>" + l[key].countb + " (" + l[key].percb.toFixed(1) + "%)</td><td>" + l[key].countc + " (" + l[key].percc.toFixed(1) + "%)</td><td>" + l[key].counts + "</td></tr>";
+        var tab = new google.visualization.Table( document.getElementById('party-perc-one') );
+        tab.draw(partyData, 
+                        {
+                            sortColumn: 1,
+                            sortAscending: false
+                        });
 
         x.domain(d3.extent(data, function(d) { return d.perc; } )).nice();
         y.domain(d3.extent(data, function(d) { return d.counter; } )).nice();
@@ -240,6 +248,7 @@ function loadSVG(session) {
                     d.mpname.indexOf("Shri") != -1 ? addContent(d, "Shri", 3) : d.mpname.indexOf("Smt.") != -1 ? addContent(d, "Smt.", 3) : addContent(d, "", 3);
                 }
                 //partyTip
+                $(".party-selected").html("Party selected: "+ d.party);
             }
             return d.party != options;
         })

@@ -5,6 +5,10 @@
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
         <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"> </script>
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+        <script type='text/javascript'>
+            google.load('visualization', '1', {packages:['table']});
+        </script>
     </head>
     <body>
         <div class="container">
@@ -31,7 +35,6 @@
             </select>
             <span class="session-info"></span>
             <button id="reset-graph">Reset</button>
-            <p class="text-info gender-count"> </p>
             <div class="alert alert-info">
               <button type="button" class="close" data-dismiss="alert">&times;</button>
               <strong>Learn more by hovering on circles (MPs) and legend (Political Parties)
@@ -41,30 +44,33 @@
                     <script type="text/javascript" src="bootstrap/js/parse.js"> </script>
                     <script type="text/javascript" src="bootstrap/js/underscore-min.js"> </script>
                 </div> <!-- end of main-svg class-->
-                <div class="party-perc-one"><table class="table party-perc-first"> </table></div>
-                <div class="mp-info">
-                    <div class="first-class"> <table class="table table-one table-striped"> </table> </div>
-                    <div class="second-class"> <table class="table table-two table-striped"> </table> </div>
-                    <div class="third-class"> <table class="table table-three table-striped"> </table> </div>
+                <div class="parties-mps">
+                    <div id="party-perc-one"><table class="table party-perc-first"> </table></div>
+                    <div class="mp-info">
+                        <div class="first-class"> <table class="table table-one table-striped"> </table> </div>
+                        <div class="second-class"> <table class="table table-two table-striped"> </table> </div>
+                        <div class="third-class"> <table class="table table-three table-striped"> </table> </div>
+                    </div>
+                    <p class="text-info gender-count party-selected"> </p>
                 </div>
-                <p class="text-right">
-                    <ul class="pull-right class-info"> 
-                    <h3>Class information</h3>
-                        <li>First class - 75% and above attendance</li>
-                        <li>Second class - 65% to 75% attendance</li>
-                        <li>Third class - below 65% attendance</li>
-                    </ul>
-                </p>
             </div> <!--mp-container class ends-->
             <div id="tt-one"> </div>
+            <p class="text-right">
+                <ul class="pull-right class-info"> 
+                <h3>Class information</h3>
+                    <li>First class - 75% and above attendance</li>
+                    <li>Second class - 65% to 75% attendance</li>
+                    <li>Third class - below 65% attendance</li>
+                </ul>
+            </p>
             <!-- About modal -->
             <div class="modal hide fade" id="aboutModal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3>MAP (Members Attending Parliament) </h3>
+                    <h3>MAP</h3>
                 </div>
                 <div class="modal-body">
-                    MAP tracks the attendance of Indian MPs in Lok Sabha (lower house).
+                    MAP (Members Attending Parliament) tracks the attendance of Indian MPs in Lok Sabha (lower house).
                     <p>
                        Currently data for 15th Lok Sabha is presented. Data for 12 sessions has been included.
                        <h3>Idea</h3>
@@ -81,6 +87,7 @@
                        <ul>
                            <li> State-wise MP attendance </li>
                            <li> Day-wise MP attendance </li>
+                           <li> Overall analysis </li>
                        </ul>
                     </p>
                 </div> 
@@ -89,7 +96,7 @@
             <div class="modal hide fade" id="partiesFull" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h3>MAP (Members Attending Parliament) - Parties </h3>
+                    <h3>MAP - Parties </h3>
                 </div>
                 <div class="modal-body">
                     <table class="table table-striped">

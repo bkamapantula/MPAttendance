@@ -14,16 +14,28 @@
 }
 .main-svg {
     float: left;
-    width: 65%;
+    width: 60%;
+    overflow: hidden;
+}
+.parties-mps {
+    float: left;
+    width: 30%;
     overflow: auto;
+}
+#party-perc-one {
+    width: 100%;
+    height: 40%;
+    float: left;
+    overflow: auto;
+    margin-bottom: 20px;
 }
 .mp-info {
     float: left;
     height: 30%;
-    width: 35%;
+    /*width: 35%;*/
     overflow: auto;
+    margin-top: 10px;
 }
-
 body {
     margin-top: 10px;
 }
@@ -54,13 +66,6 @@ body {
 .about-modal, .parties-modal {
     float: right;
     margin-left: 7px;
-}
-.party-perc-one {
-    width: 35%;
-    height: 40%;
-    margin-top: 30px;
-    float: left;
-    overflow: auto;
 }
 .container {
     margin-bottom: 30px;
