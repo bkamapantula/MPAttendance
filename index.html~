@@ -3,7 +3,6 @@
         <title> MAP (MPs Attending Parliament) </title>
         <link rel="stylesheet" type="text/css" href="bootstrap/css/style.css">
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-        <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <div class="container">
@@ -39,7 +38,7 @@
             <p class="muted total-mp-counts"></p>
             <div class="alert alert-info">
               <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <strong>Filter by clicking on legend on the right (Political Parties)
+              <strong>Filter by clicking on table on the right (Political Parties)
             </div>
             <div class="mp-container">
                 <div class="main-svg">
