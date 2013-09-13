@@ -43,7 +43,7 @@
             <div class="mp-container">
             <button id="reset-graph">Reset</button>
                 <div class="main-svg">
-                    <script type="text/javascript" src="bootstrap/js/parsemysql.js"> </script>
+                    <script type="text/javascript" src="bootstrap/js/parse.js"> </script>
                     <script type="text/javascript" src="bootstrap/js/underscore-min.js"> </script>
                 </div> <!-- end of main-svg class-->
                 <div class="parties-mps">

@@ -147,7 +147,7 @@ function loadSVG(session) {
             }
         }
         var totalss = totala + totalb + totalc;
-        $(".total-mp-counts").html( "<li>" + ((totala/totalss)*100).toFixed(2) + " % (" + totala + " of " + totalss + " MPs) have >75% attendance</li><li>" + ((totalb/totalss)*100).toFixed(2) + " % (" + totalb + " of " + totalss + " MPs) have 65-75% attendance</li><li>" + ((totala/totalss)*100).toFixed(2) + " % (" + totala + " of " + totalss + " MPs) have <65% attendance</li>" );
+        $(".total-mp-counts").html( "<li>" + ((totala/totalss)*100).toFixed(2) + " % (" + totala + " of " + totalss + " MPs) have >75% attendance</li><li>" + ((totalb/totalss)*100).toFixed(2) + " % (" + totalb + " of" + totalss + " MPs) have 65-75% attendance</li><li>" + ((totala/totalss)*100).toFixed(2) + " % (" + totala + " of " + totalss + " MPs) have <65% attendance</li>" );
         
         var partyData = new google.visualization.DataTable();
         partyData.addColumn('string', 'Party');

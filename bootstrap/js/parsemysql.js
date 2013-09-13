@@ -7,9 +7,21 @@ $(function() {
         if(v>0) {
             $(".gender-count, #tt-one").empty();
             $("svg").remove();
-            $("#reset-graph, .change-gender, .class-info, .alert-info, .attendance-header").show();
+            $("#reset-graph, .change-gender, .class-info, .attendance-header").show(); //  .alert-info,
             // sets gender to 'Select Gender' when new session is loaded
             $(".change-gender").val('10');
+            // fetch data from database
+            v = 15;
+            $.ajax({
+                type: "POST",
+                url: "parse-inputs.php",
+                data: {'session_selected': v},
+                dataType: "JSON",
+                success: function(data, status) {
+                    console.log(data.length);
+                    //loadSVG(data);
+                }
+            });
             loadSVG($("#change-session").val());
         } else {
             alert("Improper selection");
