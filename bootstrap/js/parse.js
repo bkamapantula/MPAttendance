@@ -222,40 +222,31 @@ function loadSVG(session) {
           .data(color.domain())
         .enter().append("g")
           .attr("class", "legend")
-          .on("mouseover", toggleParties)
-          .on("mouseout", retainData)
           .attr("transform", function(d, i) { return "translate(0," + i * 12 + ")"; })
           //.attr("transform", function(d, i) { return "translate(" + -i*20 + ", 0)"; })
           .style("font-size", "10px");
-          
-      // on legend mouse out
-      function retainData(options) {
-        var circles = d3.selectAll("svg circle");
-        circles.filter(function(d) {
-            return d.party == options;
-        })
-        .style("opacity", "1")
-        .attr("r", "4");
-      }
+
+      $("table tr").on("click", toggleParties);
 
       // on legend mouse hover
       var first_class_content = '',
             second_class_content = '',
             third_class_content = '';
       function toggleParties(options) {
+	var party = $($(options.currentTarget).children("td")[1]).html();
         $(".table-one, .table-two, .table-three, .gender-count").empty();
         $(".change-gender").val('10');
         first_class_content = '';
         second_class_content = '';
         third_class_content = '';
-        var circles = d3.selectAll("svg circle");
+        var circles = d3.selectAll("svg circle").style("opacity", "1");
         var count = 0;
         var dist = 0,
             distSecond = 0,
             distThird = 0;
         circles.filter(function(d) {
             // to display MP names in mp-info div
-            if(d.party == options) {
+            if(d.party === party) {
                 count = count + 1;
                 if(d.perc >= 75) {
                     dist = dist + 1;
@@ -272,7 +263,7 @@ function loadSVG(session) {
                 //partyTip
                 $(".party-selected").html("Party selected: "+ d.party);
             }
-            return d.party != options;
+            return d.party !== party;
         })
         .style("opacity", "0.1")
         .attr("r", "4");
