@@ -3,14 +3,14 @@ $(function() {
     
     // on selecting a session
     $("#change-session").on("change", function(e) {
-        var v = $("#change-session").val();
-        if(v>0) {
+        var session = $("#change-session").val();
+        if (session) {
             $(".gender-count, #tt-one").empty();
             $("svg").remove();
             $("#reset-graph, .change-gender, .class-info, .alert-info, .attendance-header").show();
             // sets gender to 'Select Gender' when new session is loaded
             $(".change-gender").val('10');
-            loadSVG($("#change-session").val());
+            loadSVG(session);
         } else {
             alert("Improper selection");
         }
@@ -35,11 +35,24 @@ function loadSVG(session) {
     width = 520,
     height = 520;
     
-    var startDate = ['June 01, 2009', 'July 02, 2009', 'November 19, 2009', 'February 22, 2010', 'July 26, 2010', 'November 09, 2010', 'February 21, 2011', 'August 01, 2011', 'November 22, 2011', 'March 12, 2012', 'August 08, 2012', 'November 22, 2012'];
-    var endDate = ['June 09, 2009', 'August 07, 2009', 'December 21, 2009', 'March 16, 2010', 'August 31, 2010', 'December 13, 2010', 'March 25, 2011', 'September 08, 2011', 'December 29, 2011', 'May 22, 2012', 'September 07, 2012', 'December 20, 2012'];
+    var dateRange = {
+	'session-1':  ['June 01, 2009', 'June 09, 2009'],
+	'session-2':  ['July 02, 2009', 'August 07, 2009'],
+	'session-3':  ['November 19, 2009', 'December 21, 2009'],
+	'session-4':  ['February 22, 2010', 'March 16, 2010'],
+	'session-5':  ['July 26, 2010', 'August 31, 2010'],
+	'session-6':  ['November 09, 2010', 'December 13, 2010'],
+	'session-7':  ['February 21, 2011', 'March 25, 2011'],
+	'session-8':  ['August 01, 2011', 'September 08, 2011'],
+	'session-9':  ['November 22, 2011', 'December 29, 2011'],
+	'session-10': ['March 12, 2012', 'May 22, 2012'],
+	'session-11': ['August 08, 2012', 'September 07, 2012'],
+	'session-12': ['November 22, 2012', 'December 20, 2012']
+    };
+    dateRange['overall'] = [dateRange['session-1'][0], dateRange['session-12'][1]];
 
     // adds session duration information
-    $(".session-info").html("<strong>"+ startDate[$("#change-session").val()] + "</strong> to <strong>" + endDate[$("#change-session").val()]+"</strong>" );
+    $(".session-info").html("<strong>"+ dateRange[session][0] + "</strong> to <strong>" + dateRange[session][1]+"</strong>" );
     
     var mx, my; // for mouse position
 	$(document).mousemove(function(e) {
@@ -83,7 +96,7 @@ function loadSVG(session) {
     .style("opacity", 0.5);
 
       var arr = new Array;
-    d3.csv("data/session-"+session+".csv", function(error, data) {  
+    d3.csv("data/"+session+".csv", function(error, data) {  
         data.forEach(function(d) {
             //if(d.Party) {
             counter = counter + 1;
@@ -97,17 +110,17 @@ function loadSVG(session) {
             d.party = d.Party;
             d.gender = d.Gender;
             d.state = d.State;
-			
-			var obj = {
-			            key: counter,
-			            party: d.party,
-			            perc: d.perc,
-			            a: d.perc >= 75 ? 1 : 0,
-			            b: d.perc >=65 && d.perc < 75? 1 : 0,
-			            c: d.perc < 65 ? 1 : 0
-        			};
-        	arr.push(obj);
-        	//}
+	    
+	    var obj = {
+		key: counter,
+		party: d.party,
+		perc: d.perc,
+		a: d.perc >= 75 ? 1 : 0,
+		b: d.perc >=65 && d.perc < 75? 1 : 0,
+		c: d.perc < 65 ? 1 : 0
+            };
+            arr.push(obj);
+            //}
         });
 
         var l = {};
@@ -217,40 +230,31 @@ function loadSVG(session) {
           .data(color.domain())
         .enter().append("g")
           .attr("class", "legend")
-          .on("mouseover", toggleParties)
-          .on("mouseout", retainData)
           .attr("transform", function(d, i) { return "translate(0," + i * 12 + ")"; })
           //.attr("transform", function(d, i) { return "translate(" + -i*20 + ", 0)"; })
           .style("font-size", "10px");
-          
-      // on legend mouse out
-      function retainData(options) {
-        var circles = d3.selectAll("svg circle");
-        circles.filter(function(d) {
-            return d.party == options;
-        })
-        .style("opacity", "1")
-        .attr("r", "4");
-      }
+
+      $("table tr").on("click", toggleParties);
 
       // on legend mouse hover
       var first_class_content = '',
             second_class_content = '',
             third_class_content = '';
       function toggleParties(options) {
+	var party = $($(options.currentTarget).children("td")[1]).html();
         $(".table-one, .table-two, .table-three, .gender-count").empty();
         $(".change-gender").val('10');
         first_class_content = '';
         second_class_content = '';
         third_class_content = '';
-        var circles = d3.selectAll("svg circle");
+        var circles = d3.selectAll("svg circle").style("opacity", "1");
         var count = 0;
         var dist = 0,
             distSecond = 0,
             distThird = 0;
         circles.filter(function(d) {
             // to display MP names in mp-info div
-            if(d.party == options) {
+            if(d.party === party) {
                 count = count + 1;
                 if(d.perc >= 75) {
                     dist = dist + 1;
@@ -267,7 +271,7 @@ function loadSVG(session) {
                 //partyTip
                 $(".party-selected").html("Party selected: "+ d.party);
             }
-            return d.party != options;
+            return d.party !== party;
         })
         .style("opacity", "0.1")
         .attr("r", "4");

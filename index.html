@@ -3,13 +3,6 @@
         <title> MAP (MPs Attending Parliament) </title>
         <link rel="stylesheet" type="text/css" href="bootstrap/css/style.css">
         <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
-        <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"> </script>
-        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script type='text/javascript' src='https://www.google.com/jsapi'></script>
-        <script type='text/javascript'>
-            google.load('visualization', '1', {packages:['table']});
-        </script>
-        <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <div class="container">
@@ -19,13 +12,20 @@
                 <h1>MAP (MPs Attending Parliament)</h1>
             </div>
             <select id="change-session">
-                <option value="0">Select Session</option>
-                <option value="1">Session 1</option> <option value="2">Session 2</option>
-                <option value="3">Session 3</option> <option value="4">Session 4</option>
-                <option value="5">Session 5</option> <option value="6">Session 6</option>
-                <option value="7">Session 7</option> <option value="8">Session 8</option>
-                <option value="9">Session 9</option> <option value="10">Session 10</option>
-                <option value="11">Session 11</option> <option value="12">Session 12</option>
+                <option value="session-0">Select Session</option>
+                <option value="session-1">Session 1</option>
+		<option value="session-2">Session 2</option>
+                <option value="session-3">Session 3</option>
+		<option value="session-4">Session 4</option>
+                <option value="session-5">Session 5</option>
+		<option value="session-6">Session 6</option>
+                <option value="session-7">Session 7</option>
+		<option value="session-8">Session 8</option>
+                <option value="session-9">Session 9</option>
+		<option value="session-10">Session 10</option>
+                <option value="session-11">Session 11</option>
+		<option value="session-12">Session 12</option>
+                <option value="overall">Overall</option>
             </select>
             <select class="change-gender">
                 <option value="10">Select Gender</option>
@@ -38,13 +38,10 @@
             <p class="muted total-mp-counts"></p>
             <div class="alert alert-info">
               <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <strong>Learn more by hovering on circles (MPs) and legend (Political Parties)
+              <strong>Filter by clicking on legend on the right (Political Parties)
             </div>
             <div class="mp-container">
-            <button id="reset-graph">Reset</button>
                 <div class="main-svg">
-                    <script type="text/javascript" src="bootstrap/js/parsemysql.js"> </script>
-                    <script type="text/javascript" src="bootstrap/js/underscore-min.js"> </script>
                 </div> <!-- end of main-svg class-->
                 <div class="parties-mps">
                     <h5 class="attendance-header">Attendance % categorized by 1st, 2nd, 3rd classes</h5>
@@ -154,5 +151,13 @@
             </div>
         </div> <!--container class ends-->
         <script type="text/javascript" src="bootstrap/js/bootstrap-modal.js"></script>
+        <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"> </script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+        <script type='text/javascript'>
+            google.load('visualization', '1', {packages:['table']});
+        </script>
+        <script type="text/javascript" src="bootstrap/js/parse.js"> </script>
+        <script type="text/javascript" src="bootstrap/js/underscore-min.js"> </script>
     </body>
 </html>
