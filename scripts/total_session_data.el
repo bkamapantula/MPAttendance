@@ -1,5 +1,6 @@
 (setq lexical-binding t)
 
+;; Install the package from the elpa/milkbox
 (require 'pcsv)
 
 (let ((assoc-array ()))
@@ -19,7 +20,7 @@
 		    (let ((start-point (point))
 			  (end-point (point-max)))
 		      (pcsv-parse-region start-point end-point)))))
-	  (directory-files "." nil ".*?\.csv"))
+	  (directory-files "../data" t "session.*?\.csv"))
   (with-temp-buffer
     (insert "Id,Name,DaysSigned,DaysMissed,Gender,State,Party,Constituency\n")
     (setq assoc-array

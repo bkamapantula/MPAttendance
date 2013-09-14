@@ -7,9 +7,10 @@ $(function() {
         if (session) {
             $(".gender-count, #tt-one").empty();
             $("svg").remove();
-            $("#reset-graph, .change-gender, .class-info, .alert-info, .attendance-header").show();
+            $("#reset-graph, .change-gender, .change-state, .class-info, .alert-info, .attendance-header").show();
             // sets gender to 'Select Gender' when new session is loaded
             $(".change-gender").val('10');
+            $(".change-state").val('0');
             loadSVG(session);
         } else {
             alert("Improper selection");
@@ -327,6 +328,14 @@ function loadSVG(session) {
                 return d.gender != gender ? d.party : false;
             })
             .attr("r", 0);
+    });
+    $(".change-state").on("change", function(e) {
+	var state = $(this).val();
+	var circles = svg.selectAll(".dot");
+	circles.attr("r", 4).style("opacity", 1);
+	circles.filter(function(d) {
+	    return d.state !== state;
+	}).style("opacity", 0.1);
     });
     
     // resets all nodes on clicking Reset button
