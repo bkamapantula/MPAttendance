@@ -19,8 +19,6 @@ Id, MP Name, Number of days signed, Number of days missed, Gender, Party, State 
 
 Day-wise MP attendance for all sessions.
 
-State-wise MP attendance for all sessions.
-
 Add scripts to parse data from Lok Sabha website.
 
 Analysis.
