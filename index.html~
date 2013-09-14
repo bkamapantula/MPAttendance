@@ -41,6 +41,7 @@
               <strong>Filter by clicking on table on the right (Political Parties)
             </div>
             <div class="mp-container">
+                <button id="reset-graph">Reset</button>
                 <div class="main-svg">
                 </div> <!-- end of main-svg class-->
                 <div class="parties-mps">
@@ -55,14 +56,7 @@
                 </div>
             </div> <!--mp-container class ends-->
             <div id="tt-one"> </div>
-            <!--p>
-                <ul class="class-info pull-right"> 
-                <h4>Class information</h4>
-                    <li>1st class - 75% and above attendance</li>
-                    <li>2nd class - 65% to 75% attendance</li>
-                    <li>3rd class - below 65% attendance</li>
-                </ul>
-            </p-->
+            <table class="table individual-mp-graph"></table>
             <!-- About modal -->
             <div class="modal hide fade" id="aboutModal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-header">

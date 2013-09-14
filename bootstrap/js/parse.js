@@ -160,7 +160,7 @@ function loadSVG(session) {
             }
         }
         var totalss = totala + totalb + totalc;
-        $(".total-mp-counts").html( "<li>" + ((totala/totalss)*100).toFixed(2) + " % (" + totala + " of " + totalss + " MPs) have >75% attendance</li><li>" + ((totalb/totalss)*100).toFixed(2) + " % (" + totalb + " of " + totalss + " MPs) have 65-75% attendance</li><li>" + ((totala/totalss)*100).toFixed(2) + " % (" + totala + " of " + totalss + " MPs) have <65% attendance</li>" );
+        $(".total-mp-counts").html( "<li>" + ((totala/totalss)*100).toFixed(2) + " % (" + totala + " of " + totalss + " MPs) have >75% attendance</li><li>" + ((totalb/totalss)*100).toFixed(2) + " % (" + totalb + " of " + totalss + " MPs) have 65-75% attendance</li><li>" + ((totalc/totalss)*100).toFixed(2) + " % (" + totalc + " of " + totalss + " MPs) have <65% attendance</li>" );
         
         var partyData = new google.visualization.DataTable();
         partyData.addColumn('string', 'Party');
@@ -168,10 +168,9 @@ function loadSVG(session) {
         partyData.addColumn('number', '1st class %');
         partyData.addColumn('number', '2nd class %');
         partyData.addColumn('number', '3rd class %');
-        //partyData.addColumn('number', 'Total');
 
         for(key in l) {
-            partyData.addRow([ l[key].party, parseInt(l[key].counta, 10) + ", " + parseInt(l[key].countb, 10) + ", " + parseInt(l[key].countc, 10), parseInt(l[key].perca, 10), parseInt(l[key].percb, 10), parseInt(l[key].percc, 10) ]); //, parseInt(l[key].counts, 10) ]);
+            partyData.addRow([ l[key].party, parseInt(l[key].counta, 10) + ", " + parseInt(l[key].countb, 10) + ", " + parseInt(l[key].countc, 10), parseInt(l[key].perca, 10), parseInt(l[key].percb, 10), parseInt(l[key].percc, 10) ]);
         }
         var tab = new google.visualization.Table( document.getElementById('party-perc-one') );
         tab.draw(partyData, 
@@ -338,7 +337,7 @@ function loadSVG(session) {
             .style("opacity", "1")
             .attr("r", "4");
     });
-    
+
     }); // end of d3.csv
 
 } // end of loadSVG
