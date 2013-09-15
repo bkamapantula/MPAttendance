@@ -236,12 +236,13 @@ function loadSVG(session) {
 
       $("table tr").on("click", toggleParties);
 
-      // on legend mouse hover
+      // on table row click
       var first_class_content = '',
             second_class_content = '',
             third_class_content = '';
       function toggleParties(options) {
 	var party = $($(options.currentTarget).children("td")[1]).html();
+	    $(".ento, .selected-state").empty();
         $(".table-one, .table-two, .table-three, .gender-count").empty();
         $(".change-gender").val('10');
         first_class_content = '';
@@ -330,17 +331,52 @@ function loadSVG(session) {
             .attr("r", 0);
     });
     $(".change-state").on("change", function(e) {
-	var state = $(this).val();
-	var circles = svg.selectAll(".dot");
-	circles.attr("r", 4).style("opacity", 1);
-	circles.filter(function(d) {
-	    return d.state !== state;
-	}).style("opacity", 0.1);
+	    var state = $(this).val();
+	    var circles = svg.selectAll(".dot");
+	    circles.attr("r", 4).style("opacity", 1);
+	    circles.filter(function(d) {
+	        return d.state !== state;
+	    }).style("opacity", 0.1);
+        var parties = {},
+            okati = '',
+            rendu = '',
+            moodu = '';
+	    circles.filter(function(d) {
+	        if(d.state == state) {
+	            if(!parties[d.party]) {
+	                parties[d.party] = {
+	                    party: d.party,
+	                    counts: 1,
+	                    countsa: d.perc>=75 ? 1 : 0,
+	                    countsb: d.perc>=65 && d.perc<75 ? 1 : 0,
+	                    countsc: d.perc<65 ? 1 : 0};
+	            } else {
+	                parties[d.party].counts++;
+	                if(d.perc>=75)
+	                    parties[d.party].countsa++;
+	                if(d.perc>=65 && d.perc<75)
+	                    parties[d.party].countsb++;
+	                if(d.perc<65)
+	                    parties[d.party].countsc++;
+	            }
+	        }
+	    });
+        console.log(Object.keys(parties));
+        okati += "<tr><th>Party</th><th>1st class</th><th>2nd class</th><th>3rd class</th></tr>";
+        for(key in parties) {
+            okati += "<tr><td>"+parties[key].party+"</td><td>"+parties[key].countsa+"</td><td>"+parties[key].countsb+"</td><td>"+parties[key].countsc+"</td></tr>";
+        }
+
+        $(".table-one, .table-two, .table-three, .party-selected").empty();
+        $(".ento").remove();
+        $(".selected-state").html("State selected: "+state);
+        $(".mp-info").append("<table class='table ento'>"+okati+"</table>");
     });
     
     // resets all nodes on clicking Reset button
     $("#reset-graph").on("click", function(e) {
         $(".change-gender").val('10');
+        $(".change-state").val('0');
         $(".gender-count").empty();
         svg.selectAll("circle")
             .style("opacity", "1")

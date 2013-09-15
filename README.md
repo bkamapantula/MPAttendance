@@ -21,6 +21,8 @@ Day-wise MP attendance for all sessions.
 
 Add scripts to parse data from Lok Sabha website.
 
+Displaying attendance %, average party attendance %, average state attendance % for all MPs.
+
 Analysis.
 
 *Credit*
