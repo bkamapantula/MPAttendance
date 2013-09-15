@@ -113,15 +113,14 @@ function loadSVG(session) {
             d.state = d.State;
 	    
 	    var obj = {
-		key: counter,
-		party: d.party,
-		perc: d.perc,
-		a: d.perc >= 75 ? 1 : 0,
-		b: d.perc >=65 && d.perc < 75? 1 : 0,
-		c: d.perc < 65 ? 1 : 0
+		        key: counter,
+		        party: d.party,
+		        perc: d.perc,
+		        a: d.perc >= 75 ? 1 : 0,
+		        b: d.perc >=65 && d.perc < 75? 1 : 0,
+		        c: d.perc < 65 ? 1 : 0
             };
-            arr.push(obj);
-            //}
+        arr.push(obj);
         });
 
         var l = {};
@@ -132,15 +131,15 @@ function loadSVG(session) {
             if( !l[arr[i].party] ) {
                 l[arr[i].party] = {
                     key: i,
-                    party: arr[i].party,
-                    perca: arr[i].a,
-                    percb: arr[i].b,
-                    percc: arr[i].c,
-                    counts: 1,
                     counta: arr[i].a,
                     countb: arr[i].b,
-                    countc: arr[i].c
-                }
+                    countc: arr[i].c,
+                    party: arr[i].party,
+                    perca: arr[i].perc>=75 ? 100 : 0,
+                    percb: arr[i].perc>=65 && arr[i].perc<75 ? 100 : 0,
+                    percc: arr[i].perc<65 ? 100 : 0,
+                    counts: 1
+                };
             } else {
                 l[arr[i].party].counts++;
                 if( arr[i].perc >= 75 ) {
