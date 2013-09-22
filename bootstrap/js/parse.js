@@ -99,7 +99,6 @@ function loadSVG(session) {
       var arr = new Array;
     d3.csv("data/"+session+".csv", function(error, data) {  
         data.forEach(function(d) {
-            //if(d.Party) {
             counter = counter + 1;
             totalDays = parseInt(d.DaysSigned, 10) + parseInt(d.DaysMissed, 10);
             perc = parseFloat(d.DaysSigned/totalDays)*100;
@@ -230,7 +229,6 @@ function loadSVG(session) {
         .enter().append("g")
           .attr("class", "legend")
           .attr("transform", function(d, i) { return "translate(0," + i * 12 + ")"; })
-          //.attr("transform", function(d, i) { return "translate(" + -i*20 + ", 0)"; })
           .style("font-size", "10px");
 
       $("table tr").on("click", toggleParties);
@@ -381,7 +379,15 @@ function loadSVG(session) {
             .style("opacity", "1")
             .attr("r", "4");
     });
-
+    
+    /*var table = d3.select(".all-mps")
+                    .data(data)
+                    .enter()
+                    .append("tr")
+                    .text(function(d) {
+                        return d.mpname;
+                    });*/
+    
     }); // end of d3.csv
 
 } // end of loadSVG

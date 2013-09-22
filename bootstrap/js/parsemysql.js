@@ -3,26 +3,15 @@ $(function() {
     
     // on selecting a session
     $("#change-session").on("change", function(e) {
-        var v = $("#change-session").val();
-        if(v>0) {
+        var session = $("#change-session").val();
+        if (session) {
             $(".gender-count, #tt-one").empty();
             $("svg").remove();
-            $("#reset-graph, .change-gender, .class-info, .attendance-header").show(); //  .alert-info,
+            $("#reset-graph, .change-gender, .change-state, .class-info, .alert-info, .attendance-header").show();
             // sets gender to 'Select Gender' when new session is loaded
             $(".change-gender").val('10');
-            // fetch data from database
-            v = 15;
-            $.ajax({
-                type: "POST",
-                url: "parse-inputs.php",
-                data: {'session_selected': v},
-                dataType: "JSON",
-                success: function(data, status) {
-                    console.log(data.length);
-                    //loadSVG(data);
-                }
-            });
-            loadSVG($("#change-session").val());
+            $(".change-state").val('0');
+            loadSVG(session);
         } else {
             alert("Improper selection");
         }
@@ -47,11 +36,24 @@ function loadSVG(session) {
     width = 520,
     height = 520;
     
-    var startDate = ['June 01, 2009', 'July 02, 2009', 'November 19, 2009', 'February 22, 2010', 'July 26, 2010', 'November 09, 2010', 'February 21, 2011', 'August 01, 2011', 'November 22, 2011', 'March 12, 2012', 'August 08, 2012', 'November 22, 2012'];
-    var endDate = ['June 09, 2009', 'August 07, 2009', 'December 21, 2009', 'March 16, 2010', 'August 31, 2010', 'December 13, 2010', 'March 25, 2011', 'September 08, 2011', 'December 29, 2011', 'May 22, 2012', 'September 07, 2012', 'December 20, 2012'];
+    var dateRange = {
+	'session-1':  ['June 01, 2009', 'June 09, 2009'],
+	'session-2':  ['July 02, 2009', 'August 07, 2009'],
+	'session-3':  ['November 19, 2009', 'December 21, 2009'],
+	'session-4':  ['February 22, 2010', 'March 16, 2010'],
+	'session-5':  ['July 26, 2010', 'August 31, 2010'],
+	'session-6':  ['November 09, 2010', 'December 13, 2010'],
+	'session-7':  ['February 21, 2011', 'March 25, 2011'],
+	'session-8':  ['August 01, 2011', 'September 08, 2011'],
+	'session-9':  ['November 22, 2011', 'December 29, 2011'],
+	'session-10': ['March 12, 2012', 'May 22, 2012'],
+	'session-11': ['August 08, 2012', 'September 07, 2012'],
+	'session-12': ['November 22, 2012', 'December 20, 2012']
+    };
+    dateRange['overall'] = [dateRange['session-1'][0], dateRange['session-12'][1]];
 
     // adds session duration information
-    $(".session-info").html("<strong>"+ startDate[$("#change-session").val()] + "</strong> to <strong>" + endDate[$("#change-session").val()]+"</strong>" );
+    $(".session-info").html("<strong>"+ dateRange[session][0] + "</strong> to <strong>" + dateRange[session][1]+"</strong>" );
     
     var mx, my; // for mouse position
 	$(document).mousemove(function(e) {
@@ -95,9 +97,8 @@ function loadSVG(session) {
     .style("opacity", 0.5);
 
       var arr = new Array;
-    d3.csv("data/session-"+session+".csv", function(error, data) {  
+    d3.csv("data/"+session+".csv", function(error, data) {  
         data.forEach(function(d) {
-            //if(d.Party) {
             counter = counter + 1;
             totalDays = parseInt(d.DaysSigned, 10) + parseInt(d.DaysMissed, 10);
             perc = parseFloat(d.DaysSigned/totalDays)*100;
@@ -109,17 +110,16 @@ function loadSVG(session) {
             d.party = d.Party;
             d.gender = d.Gender;
             d.state = d.State;
-			
-			var obj = {
-			            key: counter,
-			            party: d.party,
-			            perc: d.perc,
-			            a: d.perc >= 75 ? 1 : 0,
-			            b: d.perc >=65 && d.perc < 75? 1 : 0,
-			            c: d.perc < 65 ? 1 : 0
-        			};
-        	arr.push(obj);
-        	//}
+	    
+	    var obj = {
+		        key: counter,
+		        party: d.party,
+		        perc: d.perc,
+		        a: d.perc >= 75 ? 1 : 0,
+		        b: d.perc >=65 && d.perc < 75? 1 : 0,
+		        c: d.perc < 65 ? 1 : 0
+            };
+        arr.push(obj);
         });
 
         var l = {};
@@ -130,15 +130,15 @@ function loadSVG(session) {
             if( !l[arr[i].party] ) {
                 l[arr[i].party] = {
                     key: i,
-                    party: arr[i].party,
-                    perca: arr[i].a,
-                    percb: arr[i].b,
-                    percc: arr[i].c,
-                    counts: 1,
                     counta: arr[i].a,
                     countb: arr[i].b,
-                    countc: arr[i].c
-                }
+                    countc: arr[i].c,
+                    party: arr[i].party,
+                    perca: arr[i].perc>=75 ? 100 : 0,
+                    percb: arr[i].perc>=65 && arr[i].perc<75 ? 100 : 0,
+                    percc: arr[i].perc<65 ? 100 : 0,
+                    counts: 1
+                };
             } else {
                 l[arr[i].party].counts++;
                 if( arr[i].perc >= 75 ) {
@@ -159,7 +159,7 @@ function loadSVG(session) {
             }
         }
         var totalss = totala + totalb + totalc;
-        $(".total-mp-counts").html( "<li>" + ((totala/totalss)*100).toFixed(2) + " % (" + totala + " of " + totalss + " MPs) have >75% attendance</li><li>" + ((totalb/totalss)*100).toFixed(2) + " % (" + totalb + " of " + totalss + " MPs) have 65-75% attendance</li><li>" + ((totala/totalss)*100).toFixed(2) + " % (" + totala + " of " + totalss + " MPs) have <65% attendance</li>" );
+        $(".total-mp-counts").html( "<li>" + ((totala/totalss)*100).toFixed(2) + " % (" + totala + " of " + totalss + " MPs) have >75% attendance</li><li>" + ((totalb/totalss)*100).toFixed(2) + " % (" + totalb + " of " + totalss + " MPs) have 65-75% attendance</li><li>" + ((totalc/totalss)*100).toFixed(2) + " % (" + totalc + " of " + totalss + " MPs) have <65% attendance</li>" );
         
         var partyData = new google.visualization.DataTable();
         partyData.addColumn('string', 'Party');
@@ -167,10 +167,9 @@ function loadSVG(session) {
         partyData.addColumn('number', '1st class %');
         partyData.addColumn('number', '2nd class %');
         partyData.addColumn('number', '3rd class %');
-        //partyData.addColumn('number', 'Total');
 
         for(key in l) {
-            partyData.addRow([ l[key].party, parseInt(l[key].counta, 10) + ", " + parseInt(l[key].countb, 10) + ", " + parseInt(l[key].countc, 10), parseInt(l[key].perca, 10), parseInt(l[key].percb, 10), parseInt(l[key].percc, 10) ]); //, parseInt(l[key].counts, 10) ]);
+            partyData.addRow([ l[key].party, parseInt(l[key].counta, 10) + ", " + parseInt(l[key].countb, 10) + ", " + parseInt(l[key].countc, 10), parseInt(l[key].perca, 10), parseInt(l[key].percb, 10), parseInt(l[key].percc, 10) ]);
         }
         var tab = new google.visualization.Table( document.getElementById('party-perc-one') );
         tab.draw(partyData, 
@@ -229,40 +228,31 @@ function loadSVG(session) {
           .data(color.domain())
         .enter().append("g")
           .attr("class", "legend")
-          .on("mouseover", toggleParties)
-          .on("mouseout", retainData)
           .attr("transform", function(d, i) { return "translate(0," + i * 12 + ")"; })
-          //.attr("transform", function(d, i) { return "translate(" + -i*20 + ", 0)"; })
           .style("font-size", "10px");
-          
-      // on legend mouse out
-      function retainData(options) {
-        var circles = d3.selectAll("svg circle");
-        circles.filter(function(d) {
-            return d.party == options;
-        })
-        .style("opacity", "1")
-        .attr("r", "4");
-      }
 
-      // on legend mouse hover
+      $("table tr").on("click", toggleParties);
+
+      // on table row click
       var first_class_content = '',
             second_class_content = '',
             third_class_content = '';
       function toggleParties(options) {
+	var party = $($(options.currentTarget).children("td")[1]).html();
+	    $(".ento, .selected-state").empty();
         $(".table-one, .table-two, .table-three, .gender-count").empty();
         $(".change-gender").val('10');
         first_class_content = '';
         second_class_content = '';
         third_class_content = '';
-        var circles = d3.selectAll("svg circle");
+        var circles = d3.selectAll("svg circle").style("opacity", "1");
         var count = 0;
         var dist = 0,
             distSecond = 0,
             distThird = 0;
         circles.filter(function(d) {
             // to display MP names in mp-info div
-            if(d.party == options) {
+            if(d.party === party) {
                 count = count + 1;
                 if(d.perc >= 75) {
                     dist = dist + 1;
@@ -279,7 +269,7 @@ function loadSVG(session) {
                 //partyTip
                 $(".party-selected").html("Party selected: "+ d.party);
             }
-            return d.party != options;
+            return d.party !== party;
         })
         .style("opacity", "0.1")
         .attr("r", "4");
@@ -337,15 +327,66 @@ function loadSVG(session) {
             })
             .attr("r", 0);
     });
+    $(".change-state").on("change", function(e) {
+	    var state = $(this).val();
+	    var circles = svg.selectAll(".dot");
+	    circles.attr("r", 4).style("opacity", 1);
+	    circles.filter(function(d) {
+	        return d.state !== state;
+	    }).style("opacity", 0.1);
+        var parties = {},
+            okati = '',
+            rendu = '',
+            moodu = '';
+	    circles.filter(function(d) {
+	        if(d.state == state) {
+	            if(!parties[d.party]) {
+	                parties[d.party] = {
+	                    party: d.party,
+	                    counts: 1,
+	                    countsa: d.perc>=75 ? 1 : 0,
+	                    countsb: d.perc>=65 && d.perc<75 ? 1 : 0,
+	                    countsc: d.perc<65 ? 1 : 0};
+	            } else {
+	                parties[d.party].counts++;
+	                if(d.perc>=75)
+	                    parties[d.party].countsa++;
+	                if(d.perc>=65 && d.perc<75)
+	                    parties[d.party].countsb++;
+	                if(d.perc<65)
+	                    parties[d.party].countsc++;
+	            }
+	        }
+	    });
+        console.log(Object.keys(parties));
+        okati += "<tr><th>Party</th><th>1st class</th><th>2nd class</th><th>3rd class</th></tr>";
+        for(key in parties) {
+            okati += "<tr><td>"+parties[key].party+"</td><td>"+parties[key].countsa+"</td><td>"+parties[key].countsb+"</td><td>"+parties[key].countsc+"</td></tr>";
+        }
+
+        $(".table-one, .table-two, .table-three, .party-selected").empty();
+        $(".ento").remove();
+        $(".selected-state").html("State selected: "+state);
+        $(".mp-info").append("<table class='table ento'>"+okati+"</table>");
+    });
     
     // resets all nodes on clicking Reset button
     $("#reset-graph").on("click", function(e) {
         $(".change-gender").val('10');
+        $(".change-state").val('0');
         $(".gender-count").empty();
         svg.selectAll("circle")
             .style("opacity", "1")
             .attr("r", "4");
     });
+    
+    /*var table = d3.select(".all-mps")
+                    .data(data)
+                    .enter()
+                    .append("tr")
+                    .text(function(d) {
+                        return d.mpname;
+                    });*/
     
     }); // end of d3.csv
 
