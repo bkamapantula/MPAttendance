@@ -71,3 +71,19 @@ body {
 .container {
     margin-bottom: 15px;
 }
+
+/* compare.html CSS */
+.attendance-tooltip {
+    position: absolute;
+    right: 20%;
+    top: 10%;
+    z-index: 999;
+    display: none;
+}
+.table {
+    display: none;
+}
+#one, #two {
+    float: left;
+}
+

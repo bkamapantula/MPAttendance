@@ -1,3 +1,7 @@
 *~
 parse-inputs.php
 bootstrap/js/parsemysql.js
+dbconfig.php
+mpsuggestions.php
+search.html
+data.json

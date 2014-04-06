@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <title> MAP (MPs Attending Parliament) </title>
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/style.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+        <!--link rel="stylesheet" href="/resources/demos/style.css"-->
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <a href="javascript:void(0)" class="about-modal" data-toggle="modal">About</a>
+                <a href="javascript:void(0)" class="parties-modal" data-toggle="modal">Parties</a>
+            </div>
+            <form class="form-inline">
+                <input type="text" placeholder="MP Name" class="mpname form-control" id="mpone"/>
+                <input type="text" placeholder="MP Name" class="mpname form-control" id="mptwo"/>
+                <button type="submit" class="btn btn-primary">Compare</button>
+            </form>
+                <div id="one">
+                    <p class="text-info" id="pone"></p>
+                    <table id="datatableone" class="table table-condensed">
+                        <tr><th>Session ID</th> <th>Days signed</th><th>Days missed</th><th>Attendance %</th> </tr>
+                    </table>
+                </div>
+                <div id="two">
+                    <p class="text-info" id="ptwo"></p>
+                    <table id="datatabletwo" class="table table-condensed">
+                        <tr><th>Session ID</th> <th>Days signed</th><th>Days missed</th><th>Attendance %</th> </tr>
+                    </table>
+                </div>
+        </div>
+        <div class="attendance-tooltip">
+            <table class="table">
+                <tr><th>Legend</th></tr>
+                <tr class="success"><td>Attendance>=75%</td></tr>
+                <tr class="warning"><td>65%&#060;Attendance&#060;75%</td></tr>
+                <tr class="danger"><td>Attendance&#060;65%</td></tr>
+            </table>
+        </div>
+            <!-- About modal -->
+            <div class="modal hide fade" id="aboutModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3>MAP</h3>
+                </div>
+                <div class="modal-body">
+                    MAP (Members Attending Parliament) tracks the attendance of Indian MPs in Lok Sabha (lower house).
+                    <p>
+                       Currently data for 15th Lok Sabha is presented. Data for 12 sessions has been included.
+                        <h3>Class information</h3>
+                        <ul> 
+                            <li>1st class - 75% and above attendance</li>
+                            <li>2nd class - 65% to 75% attendance</li>
+                            <li>3rd class - below 65% attendance</li>
+                        </ul>
+                       <h3>Idea</h3>
+                       Conceptualized this idea, thanks to a <a href="https://twitter.com/binaryfootprint/status/314445030242787328">Tweet</a>.
+                       <h3> Data </h3>
+                       Data has been accessed from <a href="http://164.100.47.132/members_attendance/mainscreen.aspx"> Lok Sabha website</a>.
+                       Data is <a href="data/">available</a> in CSV format. Data can <i>potentially</i> be corrupted at few places. Please report to <a href="https://twitter.com/bkamapantula">@bkamapantula</a>.
+                       <h4>Data format</h4>
+                       Id, MP Name, Number of days signed, Number of days missed, Gender, State, Party, Constituency
+                       <h3> Code </h3>
+                       Code for parsing the data out of the Lok Sabha website will be made available soon.
+                       To contribute, head to <a href="https://github.com/bkamapantula/MPAttendance">Github</a>.
+                       <h3>To-do</h3>
+                       <ul>
+                           <li> State-wise MP attendance </li>
+                           <li> Day-wise MP attendance </li>
+                           <li> Overall analysis </li>
+                       </ul>
+                    </p>
+                </div> 
+            </div> <!--About modal ends-->
+            <div class="modal hide fade" id="partiesFull" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content"-->
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h3>MAP - Parties </h3>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-striped">
+                                <tr> <th>Party Acronym</th> <th>Party Full Name</th> </tr>
+                                <tr> <td>AGP</td> <td>Assam Gana Parishad</td> </tr>
+                                <tr> <td>AIFB</td> <td>All India Forward Bloc</td> </tr>
+                                <tr> <td>AIADMK</td> <td>All India Dravida Munnetra Kazhagam</td> </tr>
+                                <tr> <td>AIMIM</td> <td>All India Majlis-e-Ittehadul Muslimeen</td> </tr>
+                                <tr> <td>AITC</td> <td>All India Trinamool Congress</td> </tr>
+                                <tr> <td>AUDF</td> <td>All India United Democratic Front</td> </tr>
+                                <tr> <td>BJD</td> <td>Bharatiya Janata Dal</td> </tr>
+                                <tr> <td>BJP</td> <td>Bharatiya Janata Party</td> </tr>
+                                <tr> <td>BPF</td> <td>Bodoland Peoples Front</td> </tr>
+                                <tr> <td>BSP</td> <td>Bahujan Samaj Party</td> </tr>
+                                <tr> <td>BVA</td> <td>Bahujan Vikas Aaghadi</td> </tr>
+                                <tr> <td>CPI</td> <td>Communist Party of India</td> </tr>
+                                <tr> <td>CPI(M)</td> <td>Communist Party of India (Marxist)</td> </tr>
+                                <tr> <td>DMK</td> <td>Dravida Munnetra Kazhagam</td> </tr>
+                                <tr> <td>HJC</td> <td>Haryana Janhit Congress</td> </tr>
+                                <tr> <td>INC</td> <td>Indian National Congress</td> </tr>
+                                <tr> <td>IND</td> <td>Independent</td> </tr>
+                                <tr> <td>JDS</td> <td>Janata Dal (Secular)</td> </tr>
+                                <tr> <td>JKNC</td> <td>Jammu & Kashmir National Conference</td> </tr>
+                                <tr> <td>JKNPP</td> <td>Jammu & Kashmir National Panthers Party</td> </tr>
+                                <tr> <td>JMM</td> <td>Jharkhand Mukti Morcha</td> </tr>
+                                <tr> <td>JVM(P)</td> <td>Jharkhand Vikas Morcha (Prajatantrik)</td> </tr>
+                                <tr> <td>KCM</td> <td>Kerala Congress (M)</td> </tr>
+                                <tr> <td>MDMK</td> <td>Marumalarchi Dravida Munnetra Kazhagam</td> </tr>
+                                <tr> <td>MLKSC</td> <td>Muslim League Kerala State Committee</td> </tr>
+                                <tr> <td>NCP</td> <td>Nationalist Congress Party</td> </tr>
+                                <tr> <td>NPF</td> <td>Naga People's Front</td> </tr>
+                                <tr> <td>RJD</td> <td>Rashtriya Janata Dal</td> </tr>
+                                <tr> <td>RLD</td> <td>Rashtriya Lok Dal</td> </tr>
+                                <tr> <td>RSP</td> <td>Revolutionary Socialist Party</td> </tr>
+                                <tr> <td>SAD</td> <td>Shiromani Akali Dal</td> </tr>
+                                <tr> <td>SDK</td> <td>Sikkim Democratic Front</td> </tr>
+                                <tr> <td>SP</td> <td>Samajwadi Party</td> </tr>
+                                <tr> <td>SS</td> <td>Shiv Sena</td> </tr>
+                                <tr> <td>SUCI</td> <td>Socialist Unity Centre of India</td> </tr>
+                                <tr> <td>TDP</td> <td>Telugu Desam Party</td> </tr>
+                                <tr> <td>TRS</td> <td>Telangana Rashtra Samiti</td> </tr>
+                                <tr> <td>YSRCP</td> <td>YSR Congress Party</td> </tr>
+                                <tr> <td>VCK</td> <td>Viduthalai Chiruthaigal Katchi</td> </tr>
+                            </table>
+                        </div>  <!-- modal-body ends-->
+                  </div>
+                </div>
+            </div> <!-- modal ends-->
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <!--script src="//code.jquery.com/jquery-1.9.1.js"></script-->
+        <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script type="text/javascript" src="bootstrap/js/parsecompare.js"> </script>
+    </body>
+</html>        
+
